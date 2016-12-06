@@ -2,6 +2,13 @@
 <div id="wrapper">
    <div id="sidebar">
       <div id="leftadminmenu">
+          <div class="search">
+              <div>
+                  <input type="text" name="text" id="text" value="Содержит текст">
+                  <input type="hidden" name="action" value="search">
+                  <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search" style="color:red;"></span></button>
+              </div>
+          </div>
        <h3>Редактирование</h3>
          <ul id="adminmenu">
              <li><a href="category.php"><div class="menu-image"></div><div class="menu-name">Категории</div></a></li>
@@ -12,14 +19,6 @@
    </div>
     <div class="container">
         <div class="content">
-            <div class="search">
-                <div>
-                    <label for="text">Содержит текст:</label>
-                    <input type="text" name="text" id="text">
-                    <input type="hidden" name="action" value="search">
-                    <input type="submit" value="Искать">
-                </div>
-            </div>
         <h1>Система управление сайтом.</h1>
                 <h2>Управление категориями</h2>
          <div class="list-category">

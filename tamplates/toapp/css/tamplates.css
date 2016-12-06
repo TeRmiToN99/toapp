@@ -82,10 +82,21 @@ input[type="submit"]{
 }
 select, input[type="text"], input[type="date"]{
     width: 200px;
+    margin-top: 5px;
+}
+.search input[type="text"]{
+    width: 130px;
+    color: #999;
+    height: 40px;
+}
+input[type="file"]{
+    margin-top: 5px;
 }
 .search{
     right: 50px;
     top: 20px;
+    width: 100%;
+    background:#23282D;
 }
 .container{
     margin-right: 220px;    
@@ -95,7 +106,7 @@ select, input[type="text"], input[type="date"]{
     float: left;
     margin-right: 220px;    
     padding: 10px;
-    margin-left: -160px;
+   /* margin-left: -160px;*/
     margin-top: 100px;
 }
 .content{
