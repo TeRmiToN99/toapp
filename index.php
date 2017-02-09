@@ -1,13 +1,16 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/models/product.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/tamplates/toapp/index_html.php';
-$pdo = db_connect();
-/*if (isset($_GET)) 
-{
-	include 'models/login.php';
-} elseif (isset($_POST)) 
-{*/
-    include 'categories.php';
-    include 'views/index.php';
-//}
+
+require __DIR__ . '/autoload.php';
+
+$url = $_SERVER['REQUEST_URI'];
+
+$controller = new \App\Controllers\News();
+$action = $_GET['action'] ?: 'Index';
+
+try {
+    $controller->action($action);
+} catch (\App\Exceptions\Core $e) {
+    echo 'Возникло исключение ' . $e->getMessage();
+} catch (\App\Exceptions\Db $e) {
+    echo 'Проблемы с базой данных: ' . $e->getMessage();
+}
