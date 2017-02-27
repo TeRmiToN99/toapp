@@ -5,7 +5,7 @@ include __DIR__ . '/templates/top_index.php';
 
 //$user = \App\Models\User::findById(1);
 $userName = 'admin';
-include __DIR__ . '/templates/content_index.php';
+//include __DIR__ . '/templates/content_index.php';
 $controller = new \App\cpanel\Controllers\Form();
 $action = $_GET['action'] ?: 'Index';
 try {

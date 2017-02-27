@@ -11,12 +11,15 @@
         </div>
         <div class="form-group">
             <label for="lead">Краткое описание</label><br>
-            <input type="text" name="lead" id="lead">
+            <div class="col-5">
+                <textarea class="form-control" id="lead" rows="3"></textarea>
+            </div>
         </div>
         <div class="form-group">
             <label for="description">Описание</label><br>
-            <input type="text" name="description" id="description">
+            <textarea class="form-control" id="description" rows="5"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-md">Отправить</button>
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </div>

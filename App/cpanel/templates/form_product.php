@@ -7,7 +7,11 @@
         </div>
         <div class="form-group">
             <label for="category">Категория</label><br>
-            <input type="text" name="lastname" id="lastname">
+            <select class="form-control" id="category">
+                <?php foreach ($categories as $category):?>
+                    <option><?=$category->title?></option>
+                <?php endforeach;?>
+            </select>
         </div>
         <div class="form-group">
             <label for="lead">Краткое описание</label><br>

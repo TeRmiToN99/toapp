@@ -1,30 +1,30 @@
 <div class="col-sm-12 col-md-12 well" id="form_user">
     <h1>Добавить пользователя</h1>
     <form action="" method="post">
-        <div>
+        <div class="form-group">
             <label for="nickname">Никнейм</label><br>
             <input type="text" name="nickname" id="nickname">
         </div>
-        <div>
+        <div class="form-group">
             <label for="firstname">Имя</label><br>
             <input type="text" name="firstname" id="firstname">
         </div>
-        <div>
+        <div class="form-group">
             <label for="lastname">Фамилия</label><br>
             <input type="text" name="lastname" id="lastname">
         </div>
-        <div>
+        <div class="form-group">
             <label for="email">Почта</label><br>
             <input type="email" name="email" id="email">
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Пароль</label><br>
             <input type="password" name="password" id="password">
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Подтвердите пароль</label><br>
             <input type="password" name="password" id="password">
         </div>
-        <button type="submit" class="btn btn-primary btn-md">Отправить</button>
+        <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </div>
