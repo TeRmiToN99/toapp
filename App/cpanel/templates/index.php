@@ -64,7 +64,7 @@
                     <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-book fa-fw"></i> ТОВАРЫ<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
                         <li><a href="#"><i class="fa fa-angle-double-right"></i> КАТЕГОРИИ БЛЮД</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ КАТ.</a></li>
+                        <li><a href="/../form.php?action=Category"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ КАТ.</a></li>
                         <li><a href="#"><i class="fa fa-angle-double-right"></i> БЛЮДА</a></li>
                         <li><a href="#"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ БЛЮДО</a></li>
                     </ul>

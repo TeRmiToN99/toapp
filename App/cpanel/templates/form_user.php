@@ -1,4 +1,4 @@
-<div>
+<div class="col-sm-12 col-md-12 well" id="form_user">
     <h1>Добавить пользователя</h1>
     <form action="" method="post">
         <div>
@@ -25,5 +25,6 @@
             <label for="password">Подтвердите пароль</label><br>
             <input type="password" name="password" id="password">
         </div>
+        <button type="submit" class="btn btn-primary btn-md">Отправить</button>
     </form>
 </div>

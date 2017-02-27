@@ -30,11 +30,16 @@ class Form
     public function actionCategory(){
         $this->view->blocktitle = 'Добавить категорию';
         $this->view->categories = \App\cpanel\Models\Category::findAll();
-        $this->view->display(__DIR__ . '/../templates/form_category');
+        $this->view->display(__DIR__ . '/../templates/form_category.php');
     }
 
     public function actionUser(){
         $this->view->blocktitle = 'Добавить пользователя';
-        $this->view->display(__DIR__ . '/../templates/form_user');
+        $this->view->display(__DIR__ . '/../templates/form_user.php');
+    }
+
+    public function actionProduct(){
+        $this->view->blocktitle = 'Добавить Блюдо';
+        $this->view->display(__DIR__ . '/../templates/form_product.php');
     }
 }

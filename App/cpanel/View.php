@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\cpanel;
 
 class View
     implements \Countable

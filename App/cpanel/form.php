@@ -7,7 +7,7 @@ include __DIR__ . '/templates/top_index.php';
 $userName = 'admin';
 include __DIR__ . '/templates/content_index.php';
 $controller = new \App\cpanel\Controllers\Form();
-$action = $_Get['action'] ?: 'Index';
+$action = $_GET['action'] ?: 'Index';
 try {
     $controller->action($action);
 } catch(\App\Exceptions\Core $e){
