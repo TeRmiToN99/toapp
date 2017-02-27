@@ -4,32 +4,15 @@ namespace App\Models;
 
 
 use App\Model;
-use App\MultiException;
 
-/**
- * Class News
- * @package App\Models
- *
- * @property \App\Models\Author $author
- */
-
-class News
+class Category
     extends Model
 {
-    const TABLE = 'news';
-
+    const TABLE = 'categories';
     public $title;
     public $lead;
-    public $user_id;
 
-    /**
-     * LAZY LOAD
-     *
-     * @param $k
-     * @return null
-     */
-    public function __get($k)
-    {
+    public function __get($k){
         switch ($k){
             case 'user':
                 return User::findById($this->user_id);

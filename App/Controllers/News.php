@@ -26,15 +26,15 @@ class News
 
     public function beforeAction()
     {
-        $ex = new Db('Сообщение об исключении');
+        //$ex = new Db('Сообщение об исключении');
         //throw $ex;
     }
 
     public function actionIndex()
     {
-        $this->view->title = 'taskmanager | Новости.';
+        $this->view->blocktitle = 'Новости.';
         $this->view->news = \App\Models\News::findAll();
-        $this->view->display(__DIR__ . '/../templates/index.php');
+        $this->view->display(__DIR__ . '/../templates/news.php');
     }
 
     protected function actionNew()

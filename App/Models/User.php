@@ -22,5 +22,16 @@ class User extends Model
     {
         return $this->email;
     }
-    public function getName(){}
+    public function getName(){
+        return $this->name;
+    }
+    public function __get($k){
+        switch ($k){
+            case 'user':
+                return User::findById($this->user_id);
+                break;
+            default:
+                return null;
+        }
+    }
 }
