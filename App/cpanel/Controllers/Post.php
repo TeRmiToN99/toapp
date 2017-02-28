@@ -3,17 +3,18 @@
 namespace App\cpanel\Controllers;
 
 
+use App\cpanel\Models\Category;
 use App\cpanel\Models\News;
 use App\cpanel\View;
 use App\cpanel\Models\User;
 
-class Form
+class Post
 {
-    protected $view;
-    
-    function __construct()
+    protected $data;
+
+    public function __construct($data)
     {
-        $this->view = new View();
+        $this->data = $data;
     }
 
     public function action($action){
@@ -30,9 +31,11 @@ class Form
     }
 
     public function actionCategory(){
-        $this->view->blocktitle = 'Добавить категорию';
-        $this->view->categories = \App\cpanel\Models\Category::findAll();
-        $this->view->display(__DIR__ . '/../templates/form_category.php');
+        var_dump($this->data);
+        die();
+        $addcategory = new Category();
+        $addcategory->insert($this->data);
+        return true;
     }
 
     public function actionUser(){

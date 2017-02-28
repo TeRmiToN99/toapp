@@ -143,3 +143,19 @@
 .navbar-brand {
     padding: 5px 15px!important;
 }
+
+/*Content style */
+#lead {
+    max-width: 400px;
+}
+#description {
+    max-width: 600px;
+}
+#user {
+    max-width: 150px;
+}
+@media (max-width: 768px) {
+    #main{
+        margin: 125px 0px 0px 0px;
+    }
+}

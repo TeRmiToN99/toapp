@@ -3,7 +3,7 @@
 namespace App\cpanel\Models;
 
 
-use App\Model;
+use App\cpanel\Model;
 use App\MultiException;
 
 /**
