@@ -30,14 +30,6 @@ class Post
 
     }
 
-    public function actionCategory(){
-        var_dump($this->data);
-        die();
-        $addcategory = new Category();
-        $addcategory->insert($this->data);
-        return true;
-    }
-
     public function actionUser(){
         $this->view->blocktitle = 'Добавить пользователя';
         $this->view->display(__DIR__ . '/../templates/form_user.php');

@@ -47,4 +47,10 @@ class Category
         }
         throw $e;
     }
+    public function preInsert($data){
+        foreach ($data as $res => $val){
+            $this->$res = $val;
+        }
+        return [];
+    }
 }

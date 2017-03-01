@@ -8,7 +8,7 @@ $userName = 'admin';
 //include __DIR__ . '/templates/content_index.php';
 
 if(!empty($_POST)) {
-    $controller = new \App\cpanel\Controllers\Post($data);
+    $controller = new \App\cpanel\Controllers\Category();
     $action = $_GET['action'] ?: 'Index';
 }else{
     $controller = new \App\cpanel\Controllers\Form();

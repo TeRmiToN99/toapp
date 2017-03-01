@@ -33,10 +33,12 @@ abstract class Model
     public function isNew(){
         return empty($this->id);
     }
+
     public function insert(){
         if (!$this->isNew()){
-            return;
+          return;
         }
+        var_dump($this);
         $columns = [];
         $values = [];
         foreach ($this as $k => $v){
