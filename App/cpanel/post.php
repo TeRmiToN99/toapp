@@ -8,14 +8,15 @@ $userName = 'admin';
 //include __DIR__ . '/templates/content_index.php';
 
 if(!empty($_POST)) {
-    $controller = new \App\cpanel\Controllers\Category();
+    $controller = new \App\cpanel\Controllers\Post($_POST);
     $action = $_GET['action'] ?: 'Index';
+    $post_type = $_GET['post_type'] ?: '';
 }else{
     $controller = new \App\cpanel\Controllers\Form();
     $action = $_GET['action'] ?: 'Index';
 }
 try {
-    $controller->action($action);
+    $controller->action($action, $post_type);
 } catch(\App\Exceptions\Core $e){
     echo 'Возникло исключение ' . $e->getMessage();
 }catch (\App\Exceptions\Db $e) {

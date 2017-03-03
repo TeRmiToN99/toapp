@@ -8,16 +8,19 @@ abstract class Model
     const TABLE = '';
     //public static $table = 'users';
     public $id;
-    public static function findAll(){
+
+    public static function findAll()
+    {
         $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE,
-            [],static::class
+            [], static::class
         );
     }
 
-    public static function findById(int $id){
-        if($id != ' ') {
+    public static function findById(int $id)
+    {
+        if ($id != ' ') {
             $db = Db::instance();
             return $db->query(
                 'SELECT * FROM ' . static::TABLE
@@ -25,36 +28,37 @@ abstract class Model
                 [':id' => $id],
                 static::class
             )[0];
-        }else{
+        } else {
             return false;
         }
     }
 
-    public function isNew(){
+    public function isNew()
+    {
         return empty($this->id);
     }
 
-    public function insert(){
-        if (!$this->isNew()){
-          return;
+    public function insert()
+    {
+        if (!$this->isNew()) {
+            return;
         }
-        var_dump($this);
         $columns = [];
         $values = [];
-        foreach ($this as $k => $v){
-            if ('id' == $k){
+        foreach ($this as $k => $v) {
+            if ('id' == $k) {
                 continue;
             }
             $columns[] = $k;
-            $values[':'.$k] = $v;
+            $values[':' . $k] = $v;
         }
         $sql = '
             INSERT INTO ' . static::TABLE . '
-            (' .implode(',', $columns) . ')
+            (' . implode(',', $columns) . ')
              VALUES
-             (' . implode(',', array_keys($values)). ')
+             (' . implode(',', array_keys($values)) . ')
              ';
         $db = Db::instance();
-        $db->execute($sql, $values);
+        $db->query($sql, $values, static::class);
     }
 }

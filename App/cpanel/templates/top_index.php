@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?php echo $title; ?></title>
+    <title><?php if (!empty($title)){echo $title;} ?></title>
 
     <!--AppStyle-->
     <link rel="stylesheet" href="/App/cpanel/templates/style.css">
@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="/logo.jpg" alt="LOGO"">
             </a>
         </div>

@@ -1,6 +1,5 @@
 <?php
-
-require __DIR__ . '/../../autoload.php';
+require_once __DIR__ . '/../../autoload.php';
 include __DIR__ . '/templates/top_index.php';
 
 //$user = \App\Models\User::findById(1);

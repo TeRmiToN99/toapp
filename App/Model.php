@@ -53,6 +53,12 @@ abstract class Model
              (' . implode(',', array_keys($values)). ')
              ';
         $db = Db::instance();
-        $db->execute($sql, $values);
+        $db->query($sql, $values);
+    }
+    public function preInsert($data){
+        foreach ($data as $k => $v){
+            $this->$k = $v;
+        }
+        return [];
     }
 }

@@ -33,10 +33,5 @@ class Category
         $this->view->categories = \App\cpanel\Models\Category::findAll();
         $this->view->display(__DIR__ . '/../templates/a_categories.php');
     }
-
-    public function actionInsert(){
-        
-        $this->insert();
-        return true;
-    }
+    
 }

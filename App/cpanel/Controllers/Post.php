@@ -17,9 +17,16 @@ class Post
         $this->data = $data;
     }
 
-    public function action($action){
-        $methodName = 'action'.$action;
-        return $this->$methodName();
+    public function action($action, $post_type=''){
+        if ('Insert' == $action && '' != $post_type) {
+            $methodName = 'insert' . $post_type;
+            return $this->$methodName();
+        }elseif('' == $post_type){
+            $methodName = 'action' . $action;
+            return $this->$methodName();
+        }else{
+            echo 'неизвестный метод';
+        }
     }
 
     public function beforeAction(){
@@ -47,5 +54,20 @@ class Post
         $this->view->allnews = News::findAll();
         $this->view->display(__DIR__ . '/../templates/form_news.php');
     }
-    
+    public function actionInsert(){
+
+    }
+    public function insertCategory(){
+        $this->category = new Category();
+        $this->category->preInsert($this->data);
+        $this->category->insert();
+        $this->res = 'Успешно';
+        $this->view = new View();
+        $_POST['message'] = 'Добавление категории произошло ' . $this->res;
+        $this->view->categories = Category::findAll();
+        $this->view->page = 'index.php';
+        $this->view->display(__DIR__ . '/../templates/location_index.php');
+        //echo '<div class="col-sm-12 col-md-12 well">Добавление категории произошло ' . $this->res . '</div>';
+        
+    }
 }
