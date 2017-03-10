@@ -61,9 +61,9 @@ class Post
         $this->category = new Category();
         $this->category->preInsert($this->data);
         $this->category->insert();
-        $this->res = 'Успешно';
+        $res = 'Успешно';
         $this->view = new View();
-        $_POST['message'] = 'Добавление категории произошло ' . $this->res;
+        $_POST['message'] = 'Добавление категории произошло ' . $res;
         $this->view->categories = Category::findAll();
         $this->view->page = 'index.php';
         $this->view->display(__DIR__ . '/../templates/location_index.php');
