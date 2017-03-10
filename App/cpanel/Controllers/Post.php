@@ -5,6 +5,7 @@ namespace App\cpanel\Controllers;
 
 use App\cpanel\Models\Category;
 use App\cpanel\Models\News;
+use App\cpanel\Models\Product;
 use App\cpanel\View;
 use App\cpanel\Models\User;
 
@@ -67,7 +68,18 @@ class Post
         $this->view->categories = Category::findAll();
         $this->view->page = 'index.php';
         $this->view->display(__DIR__ . '/../templates/location_index.php');
-        //echo '<div class="col-sm-12 col-md-12 well">Добавление категории произошло ' . $this->res . '</div>';
-        
+        //echo '<div class="col-sm-12 col-md-12 well">Добавление категории произошло ' . $this->res . '</div>
     }
+
+    public function insertProduct(){
+        $this->product = new Product();
+        $this->product->preInsert($this->data);
+        $this->product->insert();
+        $this->res = 'Успешно';
+        $this->view = new View();
+        $_POST['message'] = 'Добавление блюда произошло ' . $this->res;
+        $this->view->page = 'index.php';
+        $this->view->display(__DIR__ . '/../templates/location_index.php');
+    }
+
 }
