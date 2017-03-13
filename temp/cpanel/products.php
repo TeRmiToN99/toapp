@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/db.inc.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/cpanel/models/product.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/cpanel/models/Product.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tamplates/toapp/index_html.php';
 /*if (isset($_GET)){ 
 	include '../models/login.php';
