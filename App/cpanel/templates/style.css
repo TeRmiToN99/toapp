@@ -159,3 +159,7 @@
         margin: 125px 0px 0px 0px;
     }
 }
+.product_img {
+    width: 200px;
+}
+hr{ border-top: 1px solid #666!important;}

@@ -6,6 +6,7 @@
                 <div class="panel-title">
                     <?php echo $product->title;?>
                 </div>
+                <img class="product_img" src="<? echo $product->url_img;?>">
                 <p> <?php if (!empty($product->author)): ?>
                         Автор: <?php echo $product->author->name; ?>
                     <?php endif; ?></p>

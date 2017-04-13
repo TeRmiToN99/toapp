@@ -23,3 +23,8 @@ try {
     echo 'Проблемы с базой данных: ' . $e->getMessage();
 }
 include  __DIR__ . '/templates/bottom_index.php';
+
+?>
+<div>
+<?php var_dump($_GET['message']);?>
+</div>

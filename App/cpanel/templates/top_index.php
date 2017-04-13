@@ -64,23 +64,23 @@
                     <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-book fa-fw"></i> ТОВАРЫ<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
                         <li><a href="#"><i class="fa fa-angle-double-right"></i> КАТЕГОРИИ БЛЮД</a></li>
-                        <li><a href="/../App/cpanel/form.php?action=Category"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ КАТ.</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> БЛЮДА</a></li>
-                        <li><a href="/../App/cpanel/form.php?action=Product"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ БЛЮДО</a></li>
+                        <li><a href="/App/cpanel/form.php?action=Category"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ КАТ.</a></li>
+                        <li><a href="/App/cpanel/products.php"><i class="fa fa-angle-double-right"></i> БЛЮДА</a></li>
+                        <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ БЛЮДО</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  НОВОСТИ <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-2" class="collapse">
                         <li><a href="#"><i class="fa fa-angle-double-right"></i> ВСЕ НОВОСТИ</a></li>
-                        <li><a href="/../App/cpanel/form.php?action=News"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ НОВОСТЬ</a></li>
+                        <li><a href="/App/cpanel/form.php?action=News"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ НОВОСТЬ</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-user-plus"></i>  ПОЛЬЗОВАТЕЛИ<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-3" class="collapse">
                         <li><a href="#"><i class="fa fa-angle-double-right"></i> ВСЕ ПОЛЬЗОВАТЕЛИ</a></li>
-                        <li><a href="/../App/cpanel/form.php?action=User"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ</a></li>
+                        <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ</a></li>
                     </ul>
                 </li>
                 <li>

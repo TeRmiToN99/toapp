@@ -1,15 +1,15 @@
 <div class="col-sm-12 col-md-12 well" id="form_product">
     <h1>Добавить блюдо</h1>
-    <form action="Post.php?action=Insert&post_type=Product" method="post">
+    <form action="post.php?action=Insert&post_type=Product" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">Заголовок</label><br>
             <input type="text" name="title" id="title">
         </div>
         <div class="form-group">
             <label for="category">Категория</label><br>
-            <select class="form-control" id="category">
+            <select class="form-control" name="category_id">
                 <?php foreach ($categories as $category):?>
-                    <option><?=$category->title?></option>
+                    <option value='<?=$category->id;?>'><?=$category->title?></option>
                 <?php endforeach;?>
             </select>
         </div>
@@ -24,7 +24,7 @@
             <textarea class="form-control" id="description" name="description"rows="5"></textarea>
         </div>
         <div class="form-group">
-            <input type="file" class="form-control-file" name="path_img">
+            <input type="file" class="form-control-file" name="url_img">
         </div>
         <button type="submit" class="btn btn-primary">Отправить</button>
     </form>

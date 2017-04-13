@@ -73,11 +73,15 @@ class Post
 
     public function insertProduct(){
         $this->product = new Product();
-        $this->product->preInsert($this->data);
-        $this->product->insert();
-        $this->res = 'Успешно';
-        $this->view = new View();
-        $_POST['message'] = 'Добавление блюда произошло ' . $this->res;
+        if (true == $this->product->uploadImage($_FILES)){
+            $message = 'успешно';
+            $this->product->preInsert($this->data);
+            $this->product->insert();
+            $this->view = new View();
+        }else{
+            $message = 'неудачно';
+        }
+        $_GET['message'] = 'Добавление блюда произошло ' . $message;
         $this->view->page = 'index.php';
         $this->view->display(__DIR__ . '/../templates/location_index.php');
     }

@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-12 well" id="form_news">
     <h1>Добавить новость</h1>
-    <form action="" method="post">
+    <form action="Post.php?action=Insert&post_type=News" method="post">
         <div class="form-group">
             <label for="title">Заголовок</label><br>
             <input type="text" name="title" id="title">

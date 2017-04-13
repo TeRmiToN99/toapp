@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-12 well" id="form_user">
     <h1>Добавить пользователя</h1>
-    <form action="" method="post">
+    <form action="Post.php?action=Insert&post_type=User" method="post">
         <div class="form-group">
             <label for="nickname">Никнейм</label><br>
             <input type="text" name="nickname" id="nickname">

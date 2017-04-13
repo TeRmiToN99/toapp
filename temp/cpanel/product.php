@@ -26,7 +26,7 @@ if ($action == "add") {
                         $_POST['description'], $_POST['content']) ;
         header("Location: products.php");
     }
-    $pageTitle = "Добавить блюдо";
+    $pageTitle = "???????? ?????";
     include 'views/form.php';
 } else if ($action == "edit") {
     if (!isset($_GET['id']))
@@ -37,7 +37,7 @@ if ($action == "add") {
         header("Location: product.php");
     }
     $product = product_get($pdo, $_GET['id']);
-    $pageTitle = "Изменить " . $product['title'];
+    $pageTitle = "???????? " . $product['title'];
     include("views/form.php");
 } else {
     $product = product_all($pdo);
