@@ -20,11 +20,20 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="description">Описание</label><br>
+            <label for="description">Технология</label><br>
             <textarea class="form-control" id="description" name="description"rows="5"></textarea>
         </div>
         <div class="form-group">
-            <input type="file" class="form-control-file" name="url_img">
+            <label for="tech_cart23">Тех.карта 23 см</label>
+            <input type="file" class="form-control-file" name="tech_cart23" id="tech_cart23">
+        </div>
+        <div class="form-group">
+            <label for="tech_cart33">Тех.карта 33 см</label>
+            <input type="file" class="form-control-file" name="tech_cart33" id="tech_cart33">
+        </div>
+        <div class="form-group">
+            <label for="url_img">Общее фото</label>
+            <input type="file" class="form-control-file" name="url_img" id="url_img">
         </div>
         <button type="submit" class="btn btn-primary">Отправить</button>
     </form>

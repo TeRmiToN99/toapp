@@ -73,7 +73,9 @@ class Post
 
     public function insertProduct(){
         $this->product = new Product();
-        if (true == $this->product->uploadImage($_FILES)){
+        if (true == $this->product->uploadImage($_FILES['url_img'])){
+            $this->product->uploadTechCart($_FILES['tech_cart23']);
+            $this->product->uploadTechCart($_FILES['tech_cart33']);
             $message = 'успешно';
             $this->product->preInsert($this->data);
             $this->product->insert();

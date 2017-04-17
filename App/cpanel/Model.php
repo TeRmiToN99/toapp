@@ -61,4 +61,18 @@ abstract class Model
         $db = Db::instance();
         $db->query($sql, $values, static::class);
     }
+
+    public static function findByIdCategory(int $id){
+        if ($id != ' ') {
+            $db = Db::instance();
+            return $db->query(
+                'SELECT * FROM ' . static::TABLE
+                . ' WHERE category_id = :id',
+                [':id' => $id],
+                static::class
+            );
+        } else {
+            return false;
+        }
+    }
 }
