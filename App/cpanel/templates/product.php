@@ -2,9 +2,13 @@
     <div>
         <?php if (!empty($product)){ ?>
             <div class="product_item">
-                <h2><?= $product->title;?></h2>
-                <div>
+                <div class="header_block">
+                    <h2><?= $product->title;?></h2>
                     <img class="product_img" src="<?php echo $product->url_img; ?>">
+                </div>
+                <div class="link_block">
+                    <a class="btn btn-info" href="#">23см</a>
+                    <a class="btn btn-info" href="#">33см</a>
                 </div>
                 <fieldset>
                     <legend>Краткое описание</legend>
