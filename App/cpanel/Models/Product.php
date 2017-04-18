@@ -71,15 +71,17 @@ class Product
     }
     return $res;
 }
-    public function uploadTechCart(){
+    public function uploadTechCart(int $i){
+        $file = $_FILES['tech_cart'.$i];
+        $cart_name = 'tech_cart'.$i;
         $root = '/App/images/techcart/';
-        if (isset($_FILES['url_img'])) {
-            if (0 == $_FILES['url_img']['error']){
+        if (isset($file)) {
+            if (0 == $file['error']){
                 $res = move_uploaded_file(
-                    $_FILES['url_img']['tmp_name'],
-                    $_SERVER['DOCUMENT_ROOT'] . $root . $_FILES['url_img']['name']
+                    $file['tmp_name'],
+                    $_SERVER['DOCUMENT_ROOT'] . $root . $file['name']
                 );
-                $this->url_img = $root . $_FILES['url_img']['name'];
+                $this->$cart_name = $root . $file['name'];
             }
         }
         return $res;

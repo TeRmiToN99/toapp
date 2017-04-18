@@ -4,20 +4,24 @@
             <div class="product_item">
                 <div class="header_block">
                     <h2><?= $product->title;?></h2>
-                    <img class="product_img" src="<?php echo $product->url_img; ?>">
+                    <a href="<?php echo $product->url_img; ?>" target="_blank"><img class="product_img" src="<?php echo $product->url_img; ?>"></a>
                 </div>
                 <div class="link_block">
                     <a class="btn btn-info" href="#">23см</a>
                     <a class="btn btn-info" href="#">33см</a>
+                    <a class="btn btn-info" href="form.php?action=UpdateProduct&product_id=<?=$product->id;?>&category_id=<?=$product->category_id;?>"><i class="fa fa-pencil fa-fw"></i></a>
                 </div>
-                <fieldset>
-                    <legend>Краткое описание</legend>
-                    <?= $product->lead; ?>
-                </fieldset>
-                <fieldset>
-                    <legend>Технология</legend>
-                    <p></p><?= $product->description; ?></p>
-                </fieldset>
+                <div>
+                    <label><?= $product->category_title;?></label>
+                    <fieldset>
+                        <legend>Краткое описание</legend>
+                        <?= $product->lead; ?>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Технология</legend>
+                        <p></p><?= $product->description; ?></p>
+                    </fieldset>
+                </div>
                 <div>
                     <fieldset>
                         <legend>Технологическая карта</legend>

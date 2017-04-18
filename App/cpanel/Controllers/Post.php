@@ -25,6 +25,9 @@ class Post
         }elseif('' == $post_type){
             $methodName = 'action' . $action;
             return $this->$methodName();
+        }elseif('Update' == $action && '' != $post_type){
+                $methodName = 'update' . $post_type;
+                return $this->$methodName();
         }else{
             echo 'неизвестный метод';
         }
@@ -54,9 +57,6 @@ class Post
         $this->view->users = User::findAll();
         $this->view->allnews = News::findAll();
         $this->view->display(__DIR__ . '/../templates/form_news.php');
-    }
-    public function actionInsert(){
-
     }
     public function insertCategory(){
         $this->category = new Category();
@@ -88,4 +88,16 @@ class Post
         $this->view->display(__DIR__ . '/../templates/location_index.php');
     }
 
+    public function updateProduct(){
+        $this->product = new Product();
+        $this->product->uploadImage($_FILES['url_img']);
+        $this->product->uploadTechCart('23');
+        $this->product->uploadTechCart('33');
+        $this->product->preInsert($this->data);
+        $this->product->update();
+        $this->view = new View();
+        $_GET['message'] = 'Добавление блюда произошло ';
+        $this->view->page = 'index.php';
+        //$this->view->display(__DIR__ . '/../templates/location_index.php');
+    }
 }

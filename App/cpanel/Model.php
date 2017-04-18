@@ -75,4 +75,22 @@ abstract class Model
             return false;
         }
     }
+
+    public function update(){
+            $columns = [];
+            $values = [];
+            foreach ($this as $k => $v) {
+                if ('id' == $k) {
+                    continue;
+                }
+                $columns[] = $k;
+                $values[':' . $k] = $v;
+            }
+            $sql = 'UPDATE ' . static::TABLE . ' SET '.
+                 implode(',', $columns) . '=' .
+                implode(',', array_keys($values))
+                . ' WHERE id = :id';
+        $db = Db::instance();
+        $db->queryUpdate($sql, $values, static::class);
+    }
 }

@@ -43,7 +43,8 @@ class Product
     }
     public function actionFindById(){
         $this->view->product = \App\cpanel\Models\Product::findById($_GET['product_id']);
-        //$this->view->categories = Category::findAll();
+        $category = Category::findById($this->view->product->category_id);
+        $this->view->product->category_title = $category->title;
         $this->view->display(__DIR__ . '/../templates/product.php');
     }
 }

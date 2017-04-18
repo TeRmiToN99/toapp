@@ -4,6 +4,7 @@ namespace App\cpanel\Controllers;
 
 
 use App\cpanel\Models\News;
+use App\cpanel\Models\Product;
 use App\cpanel\View;
 use App\cpanel\Models\User;
 
@@ -51,6 +52,13 @@ class Form
         $this->view->users = User::findAll();
         $this->view->allnews = News::findAll();
         $this->view->display(__DIR__ . '/../templates/form_news.php');
+    }
+
+    public function actionUpdateProduct(){
+        $this->view->blocktitle = 'Изменить товар';
+        $this->view->product = Product::findById($_GET['product_id']);
+        $this->view->categories = \App\cpanel\Models\Category::findAll();
+        $this->view->display(__DIR__ . '/../templates/form_product.php');
     }
     
 }

@@ -191,3 +191,11 @@ fieldset{
     right: 50px;
     margin-top: 20px;
 }
+.block_info{
+    float: left;
+    min-width: 400px;
+    margin-right: 20px;
+}
+.block_img_links{
+    float: left;
+}

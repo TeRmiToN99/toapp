@@ -31,5 +31,17 @@ class Db
         }
         return [];
     }
+    public function queryUpdate($sql, $params, $class){
+        $sth = $this->dbh->prepare($sql,$params);
+        foreach ($params as $v => $k) {
+            $sth->bindParam($v, $k);
+            var_dump($v);
+        }
+        $res = $sth->execute();
+        if (false !== $res){
+            return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+        }
+        return [];
+    }
 
 }
