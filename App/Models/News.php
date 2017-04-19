@@ -48,12 +48,7 @@ class News
                 return false;
         }
     }
-
-    public function setTitle($str)
-    {
-        $this->title = trim($str);
-    }
-
+    
     public function fill($data = []){
         $e = new MultiException();
         if (true){

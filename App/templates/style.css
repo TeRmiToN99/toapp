@@ -200,6 +200,6 @@ fieldset{
 }
 
 .block-news {
-    top: 0;
-    position: fixed;
+    float: left;
+    margin: 10px;
 }

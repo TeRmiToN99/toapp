@@ -6,7 +6,6 @@ $controller = new \App\Controllers\Product();
 $action = $_GET['action'] ?: 'Index';
 $title = 'ToApp | Блюда категории';
 include __DIR__ . '/App/templates/index_top.php';
-include __DIR__ . '/App/templates/index_content.php';
 try {
     $controller->action($action);
 } catch(\App\Exceptions\Core $e){

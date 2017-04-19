@@ -3,6 +3,9 @@
 require __DIR__ . '/autoload.php';
 $url = $_SERVER['REQUEST_URI'];
 
+$title = 'ToApp | ';
+include __DIR__ . '/App/templates/index_top.php';
+
 $controller = new \App\Controllers\News();
 $action = $_GET['action'] ?: 'Index';
 
@@ -13,10 +16,9 @@ try {
 } catch (\App\Exceptions\Db $e) {
     echo 'Проблемы с базой данных: ' . $e->getMessage();
 }
+
 $controller = new \App\Controllers\Product();
 $action = $_GET['action'] ?: 'Index';
-$title = 'ToApp | Блюда категории';
-include __DIR__ . '/App/templates/index_top.php';
 //include __DIR__ . '/App/templates/index_content.php';
 
 try {
@@ -26,7 +28,6 @@ try {
 }catch (\App\Exceptions\Db $e) {
     echo 'Проблемы с базой данных: ' . $e->getMessage();
 }
-include  __DIR__ . '/App/templates/bottom_index.php';
 
 
-require_once __DIR__ . '/App/templates/index_bottom.php';
+include  __DIR__ . '/App/templates/index_bottom.php';
