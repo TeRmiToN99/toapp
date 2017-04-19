@@ -1,11 +1,11 @@
 <?php
 
 require __DIR__ . '/../../autoload.php';
-include __DIR__ . '/templates/top_index.php';
+include __DIR__ . '/templates/index_top.php';
 
 //$user = \App\Models\User::findById(1);
 $userName = 'admin';
-//include __DIR__ . '/templates/content_index.php';
+//include __DIR__ . '/templates/index_content.php';
 
 if(!empty($_POST)) {
     $controller = new \App\cpanel\Controllers\Post($data);
@@ -21,4 +21,4 @@ try {
 }catch (\App\Exceptions\Db $e) {
     echo 'Проблемы с базой данных: ' . $e->getMessage();
 }
-include  __DIR__ . '/templates/bottom_index.php';
+include __DIR__ . '/templates/index_bottom.php';

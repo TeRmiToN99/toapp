@@ -67,7 +67,7 @@ class Post
         $_POST['message'] = 'Добавление категории произошло ' . $res;
         $this->view->categories = Category::findAll();
         $this->view->page = 'index.php';
-        $this->view->display(__DIR__ . '/../templates/location_index.php');
+        $this->view->display(__DIR__ . '/../templates/index_location.php');
         //echo '<div class="col-sm-12 col-md-12 well">Добавление категории произошло ' . $this->res . '</div>
     }
 
@@ -85,7 +85,7 @@ class Post
         }
         $_GET['message'] = 'Добавление блюда произошло ' . $message;
         $this->view->page = 'index.php';
-        $this->view->display(__DIR__ . '/../templates/location_index.php');
+        $this->view->display(__DIR__ . '/../templates/index_location.php');
     }
 
     public function updateProduct(){
@@ -98,6 +98,6 @@ class Post
         $this->view = new View();
         $_GET['message'] = 'Добавление блюда произошло ';
         $this->view->page = 'form.php?action=Product';
-        //$this->view->display(__DIR__ . '/../templates/location_index.php');
+        //$this->view->display(__DIR__ . '/../templates/index_location.php');
     }
 }

@@ -1,6 +1,13 @@
+            </div>
+            <!-- /.row -->
         </div>
+        <!-- /.container-fluid -->
     </div>
-</main>
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+<footer>
+    <div class="container"></div>
+</footer>
 <footer>
     <div class="container"></div>
 </footer>
