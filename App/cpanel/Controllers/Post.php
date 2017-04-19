@@ -97,7 +97,7 @@ class Post
         $this->product->update();
         $this->view = new View();
         $_GET['message'] = 'Добавление блюда произошло ';
-        $this->view->page = 'index.php';
+        $this->view->page = 'form.php?action=Product';
         //$this->view->display(__DIR__ . '/../templates/location_index.php');
     }
 }

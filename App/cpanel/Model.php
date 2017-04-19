@@ -86,10 +86,15 @@ abstract class Model
                 $columns[] = $k;
                 $values[':' . $k] = $v;
             }
-            $sql = 'UPDATE ' . static::TABLE . ' SET '.
-                 implode(',', $columns) . '=' .
-                implode(',', array_keys($values))
-                . ' WHERE id = :id';
+        $sql = 'UPDATE products  SET
+                title = :title,
+                lead = :lead,
+                description = :description,
+                category_id = :category_id,
+                tech_cart23 = :tech_cart23,
+                tech_cart33 = :tech_cart33,
+                url_img = :url_img
+                WHERE id = :id';
         $db = Db::instance();
         $db->queryUpdate($sql, $values, static::class);
     }

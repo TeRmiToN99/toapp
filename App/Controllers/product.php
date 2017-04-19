@@ -1,6 +1,8 @@
 <?php
+
 namespace App\Controllers;
 
+use App\Models\Category;
 use App\Exceptions\Core;
 use App\Exceptions\Db;
 use App\MultiException;
@@ -10,9 +12,9 @@ class Product
 {
     protected $view;
 
-    public function __construct()
+    function __construct()
     {
-        $this->view = new View;
+        $this->view = new View();
     }
 
     public function action($action){
@@ -30,6 +32,19 @@ class Product
     {
         $this->view->blocktitle = 'Все блюда.';
         $this->view->products = \App\Models\Product::findAll();
+        $this->view->categories = Category::findAll();
         $this->view->display(__DIR__ . '/../templates/products.php');
+    }
+    public function actionFindByIdCategory(){
+        $this->view->products = \App\Models\Product::findByIdCategory($_GET['category_id']);
+        $this->view->categories = Category::findAll();
+        $this->view->blocktitle = 'Все блюда категории ';
+        $this->view->display(__DIR__ . '/../templates/products.php');
+    }
+    public function actionFindById(){
+        $this->view->product = \App\Models\Product::findById($_GET['product_id']);
+        $category = Category::findById($this->view->product->category_id);
+        $this->view->product->category_title = $category->title;
+        $this->view->display(__DIR__ . '/../templates/product.php');
     }
 }

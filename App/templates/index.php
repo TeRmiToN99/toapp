@@ -18,18 +18,6 @@
     <![endif]-->
 </head>
 <body>
-<h1><?=$title?></h1>
-<?php foreach ($news as $article) { ?>
-<div class="panel panel-default">
-    <div class="panel-heading"><?php echo $article->title;?>
-    <p> <?php if (!empty($article->author)): ?>
-            Автор: <?php echo $article->author->name; ?>
-        <?php endif; ?></p>
-    </div>
-    <div class="panel-body">
-        <?php echo $article->lead; ?></div>
-    </div>
-<?php } ?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -5,6 +5,7 @@
             <div class="form-group">
                 <label for="title">Заголовок</label><br>
                 <input type="text" name="title" id="title" value="<?=$product->title; ?>">
+                <input type="text" style="display: none" name="id" id="id" value="<?=$product->id?>">
             </div>
             <div class="form-group">
                 <label for="category">Категория</label><br>

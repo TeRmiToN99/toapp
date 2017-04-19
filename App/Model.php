@@ -8,16 +8,19 @@ abstract class Model
     const TABLE = '';
     //public static $table = 'users';
     public $id;
-    public static function findAll(){
+
+    public static function findAll()
+    {
         $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE,
-            [],static::class
+            [], static::class
         );
     }
 
-    public static function findById(int $id){
-        if($id != ' ') {
+    public static function findById(int $id)
+    {
+        if ($id != ' ') {
             $db = Db::instance();
             return $db->query(
                 'SELECT * FROM ' . static::TABLE
@@ -25,40 +28,22 @@ abstract class Model
                 [':id' => $id],
                 static::class
             )[0];
-        }else{
+        } else {
             return false;
         }
     }
 
-    public function isNew(){
-        return empty($this->id);
-    }
-    public function insert(){
-        if (!$this->isNew()){
-            return;
+    public static function findByIdCategory(int $id){
+        if ($id != ' ') {
+            $db = Db::instance();
+            return $db->query(
+                'SELECT * FROM ' . static::TABLE
+                . ' WHERE category_id = :id',
+                [':id' => $id],
+                static::class
+            );
+        } else {
+            return false;
         }
-        $columns = [];
-        $values = [];
-        foreach ($this as $k => $v){
-            if ('id' == $k){
-                continue;
-            }
-            $columns[] = $k;
-            $values[':'.$k] = $v;
-        }
-        $sql = '
-            INSERT INTO ' . static::TABLE . '
-            (' .implode(',', $columns) . ')
-             VALUES
-             (' . implode(',', array_keys($values)). ')
-             ';
-        $db = Db::instance();
-        $db->query($sql, $values);
-    }
-    public function preInsert($data){
-        foreach ($data as $k => $v){
-            $this->$k = $v;
-        }
-        return [];
     }
 }
