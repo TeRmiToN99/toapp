@@ -43,10 +43,10 @@ class Product
     public function fill($data = []){
         $e = new MultiException();
         if (true){
-            $e[] = new \Exception('Р—Р°РіРѕР»РѕРІРѕРє РЅРµРІРµСЂРЅС‹Р№');
+            $e[] = new \Exception('Заголовок неверный');
         }
         if (true){
-            $e[] = new \Exception('РўРµРєСЃС‚ РЅРµРІРµСЂРЅС‹Р№');
+            $e[] = new \Exception('Текст неверный');
         }
         throw $e;
     }

@@ -3,12 +3,12 @@
     <form action="post.php?action=<? echo(!empty($product->id) ? 'Update': 'Insert');?>&post_type=Product" method="post" enctype="multipart/form-data">
         <div class="block_info">
             <div class="form-group">
-                <label for="title">Р—Р°РіРѕР»РѕРІРѕРє</label><br>
+                <label for="title">Заголовок</label><br>
                 <input type="text" name="title" id="title" value="<?=$product->title; ?>">
                 <input type="text" style="display: none" name="id" id="id" value="<?=$product->id?>">
             </div>
             <div class="form-group">
-                <label for="category">РљР°С‚РµРіРѕСЂРёСЏ</label><br>
+                <label for="category">Категория</label><br>
                 <select class="form-control" name="category_id">
                     <?php foreach ($categories as $category):?>
                         <option <?if($category->id == $_GET['category_id']){echo 'selected'; $vcat = '"'. $category->title . '"';}?> value='<?=$category->id;?>'><?=$category->title?></option>
@@ -16,34 +16,34 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="lead">РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ</label><br>
+                <label for="lead">Краткое описание</label><br>
                 <div class="col-5">
                     <textarea class="form-control" id="lead" name="lead" rows="3"><?=$product->lead;?></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <label for="description">РўРµС…РЅРѕР»РѕРіРёСЏ</label><br>
+                <label for="description">Технология</label><br>
                 <textarea class="form-control" id="description" name="description"rows="5"><?=$product->description;?></textarea>
             </div>
         </div>
         <div class="block_img_links">
             <div class="form-group">
-                <label for="tech_cart23">РўРµС….РєР°СЂС‚Р° 23 СЃРј</label>
+                <label for="tech_cart23">Тех.карта 23 см</label>
                 <input type="file" class="form-control-file" name="tech_cart23" id="tech_cart23">
-                <? if(!empty($product->tech_cart23)){?><a href="<?=$product->tech_cart23;?>" target="_blank">С‚РµРєСѓС‰Р°СЏ С‚РµС….РєР°СЂС‚Р°</a> <?}?>
+                <? if(!empty($product->tech_cart23)){?><a href="<?=$product->tech_cart23;?>" target="_blank">текущая тех.карта</a> <?}?>
             </div>
             <div class="form-group">
-                <label for="tech_cart33">РўРµС….РєР°СЂС‚Р° 33 СЃРј</label>
+                <label for="tech_cart33">Тех.карта 33 см</label>
                 <input type="file" class="form-control-file" name="tech_cart33" id="tech_cart33">
-                <? if(!empty($product->tech_cart33)){?><a href="<?=$product->tech_cart33;?>" target="_blank">С‚РµРєСѓС‰Р°СЏ С‚РµС….РєР°СЂС‚Р°</a> <?}?>
+                <? if(!empty($product->tech_cart33)){?><a href="<?=$product->tech_cart33;?>" target="_blank">текущая тех.карта</a> <?}?>
             </div>
             <div class="form-group">
-                <label for="url_img">РћСЃРЅРѕРІРЅРѕРµ С„РѕС‚Рѕ</label>
+                <label for="url_img">Основное фото</label>
                 <input type="file" class="form-control-file" name="url_img" id="url_img">
             </div>
         </div>
-        <h4>РўРµРєСѓС‰Р°СЏ РѕСЃРЅРѕРІРЅР°СЏ С„РѕС‚РѕРіСЂР°С„РёСЏ: <?=$product->url_img;?></h4>
+        <h4>Текущая основная фотография: <?=$product->url_img;?></h4>
         <a href="<?=$product->url_img;?>" target="_blank"><img src="<?=$product->url_img;?>"></a>
-        <button type="submit" class="btn btn-primary">РћС‚РїСЂР°РІРёС‚СЊ</button>
+        <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </div>

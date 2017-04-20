@@ -26,13 +26,13 @@ class News
 
     public function beforeAction()
     {
-        //$ex = new Db('Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¾Ð± Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¸');
+        //$ex = new Db('Ñîîáùåíèå îá èñêëþ÷åíèè');
         //throw $ex;
     }
 
     public function actionIndex()
     {
-        $this->view->blocktitle = 'ÐÐ¾Ð²Ð¾ÑÑ‚Ð¸.';
+        $this->view->blocktitle = 'Íîâîñòè.';
         $this->view->news = \App\Models\News::findAll();
         $this->view->display(__DIR__ . '/../templates/news.php');
     }

@@ -29,7 +29,7 @@ class Post
                 $methodName = 'update' . $post_type;
                 return $this->$methodName();
         }else{
-            echo 'РЅРµРёР·РІРµСЃС‚РЅС‹Р№ РјРµС‚РѕРґ';
+            echo 'неизвестный метод';
         }
     }
 
@@ -42,18 +42,18 @@ class Post
     }
 
     public function actionUser(){
-        $this->view->blocktitle = 'Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ';
+        $this->view->blocktitle = 'Добавить пользователя';
         $this->view->display(__DIR__ . '/../templates/form_user.php');
     }
 
     public function actionProduct(){
-        $this->view->blocktitle = 'Р”РѕР±Р°РІРёС‚СЊ Р±Р»СЋРґРѕ';
+        $this->view->blocktitle = 'Добавить блюдо';
         $this->view->categories = \App\cpanel\Models\Category::findAll();
         $this->view->display(__DIR__ . '/../templates/form_product.php');
     }
 
     public function actionNews(){
-        $this->view->blocktitle = 'Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІРѕСЃС‚СЊ';
+        $this->view->blocktitle = 'Добавить новость';
         $this->view->users = User::findAll();
         $this->view->allnews = News::findAll();
         $this->view->display(__DIR__ . '/../templates/form_news.php');
@@ -62,13 +62,13 @@ class Post
         $this->category = new Category();
         $this->category->preInsert($this->data);
         $this->category->insert();
-        $res = 'РЈСЃРїРµС€РЅРѕ';
+        $res = 'Успешно';
         $this->view = new View();
-        $_POST['message'] = 'Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё РїСЂРѕРёР·РѕС€Р»Рѕ ' . $res;
+        $_POST['message'] = 'Добавление категории произошло ' . $res;
         $this->view->categories = Category::findAll();
         $this->view->page = 'index.php';
         $this->view->display(__DIR__ . '/../templates/index_location.php');
-        //echo '<div class="col-sm-12 col-md-12 well">Р”РѕР±Р°РІР»РµРЅРёРµ РєР°С‚РµРіРѕСЂРёРё РїСЂРѕРёР·РѕС€Р»Рѕ ' . $this->res . '</div>
+        //echo '<div class="col-sm-12 col-md-12 well">Добавление категории произошло ' . $this->res . '</div>
     }
 
     public function insertProduct(){
@@ -76,14 +76,14 @@ class Post
         if (true == $this->product->uploadImage($_FILES['url_img'])){
             $this->product->uploadTechCart($_FILES['tech_cart23']);
             $this->product->uploadTechCart($_FILES['tech_cart33']);
-            $message = 'СѓСЃРїРµС€РЅРѕ';
+            $message = 'успешно';
             $this->product->preInsert($this->data);
             $this->product->insert();
             $this->view = new View();
         }else{
-            $message = 'РЅРµСѓРґР°С‡РЅРѕ';
+            $message = 'неудачно';
         }
-        $_GET['message'] = 'Р”РѕР±Р°РІР»РµРЅРёРµ Р±Р»СЋРґР° РїСЂРѕРёР·РѕС€Р»Рѕ ' . $message;
+        $_GET['message'] = 'Добавление блюда произошло ' . $message;
         $this->view->page = 'index.php';
         $this->view->display(__DIR__ . '/../templates/index_location.php');
     }
@@ -96,7 +96,7 @@ class Post
         $this->product->preInsert($this->data);
         $this->product->update();
         $this->view = new View();
-        $_GET['message'] = 'Р”РѕР±Р°РІР»РµРЅРёРµ Р±Р»СЋРґР° РїСЂРѕРёР·РѕС€Р»Рѕ ';
+        $_GET['message'] = 'Добавление блюда произошло ';
         $this->view->page = 'form.php?action=Product';
         //$this->view->display(__DIR__ . '/../templates/index_location.php');
     }

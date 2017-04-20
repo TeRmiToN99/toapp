@@ -51,10 +51,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b class="fa fa-angle-down"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-fw fa-user"></i> п÷я─п╬я└п╦п╩я▄</a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-cog"></i> п²п╟я│я┌я─п╬п╧п╨п╦</a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-user"></i> оПНТХКЭ</a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-cog"></i> мЮЯРПНИЙХ</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-fw fa-power-off"></i> п▓я▀п╧я┌п╦</a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-power-off"></i> бШИРХ</a></li>
                     </ul>
                 </li>
             </ul>
@@ -62,36 +62,36 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-book fa-fw"></i> п╒п·п▓п░п═п╚<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-book fa-fw"></i> рнбюпш<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                         <ul id="submenu-1" class="collapse">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> п п░п╒п∙п⌠п·п═п≤п≤ п▒п⌡п╝п■</a></li>
-                            <li><a href="/App/cpanel/form.php?action=Category"><i class="fa fa-angle-double-right"></i> п■п·п▒п░п▓п≤п╒п╛ п п░п╒.</a></li>
-                            <li><a href="/App/cpanel/products.php"><i class="fa fa-angle-double-right"></i> п▒п⌡п╝п■п░</a></li>
-                            <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-angle-double-right"></i> п■п·п▒п░п▓п≤п╒п╛ п▒п⌡п╝п■п·</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> йюрецнпхх акчд</a></li>
+                            <li><a href="/App/cpanel/form.php?action=Category"><i class="fa fa-angle-double-right"></i> днаюбхрэ йюр.</a></li>
+                            <li><a href="/App/cpanel/products.php"><i class="fa fa-angle-double-right"></i> акчдю</a></li>
+                            <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-angle-double-right"></i> днаюбхрэ акчдн</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  п²п·п▓п·п║п╒п≤ <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  мнбнярх <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                         <ul id="submenu-2" class="collapse">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> п▓п║п∙ п²п·п▓п·п║п╒п≤</a></li>
-                            <li><a href="/App/cpanel/form.php?action=News"><i class="fa fa-angle-double-right"></i> п■п·п▒п░п▓п≤п╒п╛ п²п·п▓п·п║п╒п╛</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> бяе мнбнярх</a></li>
+                            <li><a href="/App/cpanel/form.php?action=News"><i class="fa fa-angle-double-right"></i> днаюбхрэ мнбнярэ</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-user-plus"></i>  п÷п·п⌡п╛п≈п·п▓п░п╒п∙п⌡п≤<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-user-plus"></i>  онкэгнбюрекх<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                         <ul id="submenu-3" class="collapse">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> п▓п║п∙ п÷п·п⌡п╛п≈п·п▓п░п╒п∙п⌡п≤</a></li>
-                            <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-angle-double-right"></i> п■п·п▒п░п▓п≤п╒п╛ п÷п·п⌡п╛п≈п·п▓п░п╒п∙п⌡п╞</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> бяе онкэгнбюрекх</a></li>
+                            <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-angle-double-right"></i> днаюбхрэ онкэгнбюрекъ</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> FAQ</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-search"></i> п÷п·п≤п║п </a>
+                        <a href="#"><i class="fa fa-fw fa-search"></i> онхяй</a>
                     </li>
                     <li>
-                        <a href="support"><i class="fa fa-fw fa-paper-plane-o"></i> п╒п∙п╔ п÷п·п■п■п∙п═п√п п░</a>
+                        <a href="support"><i class="fa fa-fw fa-paper-plane-o"></i> реу онддепфйю</a>
                     </li>
                 </ul>
             </div>

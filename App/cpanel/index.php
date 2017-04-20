@@ -11,9 +11,9 @@ $type = '';
 try {
     $controller->action($action);
 } catch (\App\Exceptions\Core $e) {
-    echo 'Ð’Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¾ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ' . $e->getMessage();
+    echo 'Âîçíèêëî èñêëþ÷åíèå ' . $e->getMessage();
 } catch (\App\Exceptions\Db $e) {
-    echo 'ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð±Ð°Ð·Ð¾Ð¹ Ð´Ð°Ð½Ð½Ñ‹Ñ…: ' . $e->getMessage();
+    echo 'Ïðîáëåìû ñ áàçîé äàííûõ: ' . $e->getMessage();
 }
 
 $controller = new \App\cpanel\Controllers\Category();
@@ -21,8 +21,8 @@ $action = $_GET['action'] ?: 'Index';
 try {
     $controller->action($action);
 } catch(\App\Exceptions\Core $e){
-    echo 'Ð’Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¾ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ' . $e->getMessage();
+    echo 'Âîçíèêëî èñêëþ÷åíèå ' . $e->getMessage();
 }catch (\App\Exceptions\Db $e) {
-    echo 'ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð±Ð°Ð·Ð¾Ð¹ Ð´Ð°Ð½Ð½Ñ‹Ñ…: ' . $e->getMessage();
+    echo 'Ïðîáëåìû ñ áàçîé äàííûõ: ' . $e->getMessage();
 }
 include __DIR__ . '/templates/index_bottom.php';

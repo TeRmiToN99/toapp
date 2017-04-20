@@ -25,12 +25,12 @@ class Product
 
     public function beforeAction()
     {
-        //$ex = new Db('Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¾Ð± Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¸');
+        //$ex = new Db('Ñîîáùåíèå îá èñêëþ÷åíèè');
         //throw $ex;
     }
     public function actionIndex()
     {
-        $this->view->blocktitle = 'Ð’ÑÐµ Ð±Ð»ÑŽÐ´Ð°.';
+        $this->view->blocktitle = 'Âñå áëþäà.';
         $this->view->products = \App\cpanel\Models\Product::findAll();
         $this->view->categories = Category::findAll();
         $this->view->display(__DIR__ . '/../templates/a_products.php');
@@ -38,7 +38,7 @@ class Product
     public function actionFindByIdCategory(){
         $this->view->products = \App\cpanel\Models\Product::findByIdCategory($_GET['category_id']);
         $this->view->categories = Category::findAll();
-        $this->view->blocktitle = 'Ð’ÑÐµ Ð±Ð»ÑŽÐ´Ð° ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸ ';
+        $this->view->blocktitle = 'Âñå áëþäà êàòåãîðèè ';
         $this->view->display(__DIR__ . '/../templates/a_products.php');
     }
     public function actionFindById(){

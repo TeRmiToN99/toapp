@@ -12,9 +12,9 @@ $action = $_GET['action'] ?: 'Index';
 try {
     $controller->action($action);
 } catch (\App\Exceptions\Core $e) {
-    echo 'Ğ’Ğ¾Ğ·Ğ½Ğ¸ĞºĞ»Ğ¾ Ğ¸ÑĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ ' . $e->getMessage();
+    echo 'Âîçíèêëî èñêëş÷åíèå ' . $e->getMessage();
 } catch (\App\Exceptions\Db $e) {
-    echo 'ĞŸÑ€Ğ¾Ğ±Ğ»ĞµĞ¼Ñ‹ Ñ Ğ±Ğ°Ğ·Ğ¾Ğ¹ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ…: ' . $e->getMessage();
+    echo 'Ïğîáëåìû ñ áàçîé äàííûõ: ' . $e->getMessage();
 }
 
 $controller = new \App\Controllers\Product();
@@ -24,9 +24,9 @@ $action = $_GET['action'] ?: 'Index';
 try {
     $controller->action($action);
 } catch(\App\Exceptions\Core $e){
-    echo 'Ğ’Ğ¾Ğ·Ğ½Ğ¸ĞºĞ»Ğ¾ Ğ¸ÑĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ ' . $e->getMessage();
+    echo 'Âîçíèêëî èñêëş÷åíèå ' . $e->getMessage();
 }catch (\App\Exceptions\Db $e) {
-    echo 'ĞŸÑ€Ğ¾Ğ±Ğ»ĞµĞ¼Ñ‹ Ñ Ğ±Ğ°Ğ·Ğ¾Ğ¹ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ…: ' . $e->getMessage();
+    echo 'Ïğîáëåìû ñ áàçîé äàííûõ: ' . $e->getMessage();
 }
 
 
