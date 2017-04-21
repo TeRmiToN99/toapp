@@ -1,30 +1,30 @@
 <div class="col-sm-12 col-md-12 well" id="form_user">
-    <h1>Добавить пользователя</h1>
+    <h1>Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</h1>
     <form action="Post.php?action=Insert&post_type=User" method="post">
         <div class="form-group">
-            <label for="nickname">Никнейм</label><br>
+            <label for="nickname">РќРёРєРЅРµР№Рј</label><br>
             <input type="text" name="nickname" id="nickname">
         </div>
         <div class="form-group">
-            <label for="firstname">Имя</label><br>
+            <label for="firstname">РРјСЏ</label><br>
             <input type="text" name="firstname" id="firstname">
         </div>
         <div class="form-group">
-            <label for="lastname">Фамилия</label><br>
+            <label for="lastname">Р¤Р°РјРёР»РёСЏ</label><br>
             <input type="text" name="lastname" id="lastname">
         </div>
         <div class="form-group">
-            <label for="email">Почта</label><br>
+            <label for="email">РџРѕС‡С‚Р°</label><br>
             <input type="email" name="email" id="email">
         </div>
         <div class="form-group">
-            <label for="password">Пароль</label><br>
+            <label for="password">РџР°СЂРѕР»СЊ</label><br>
             <input type="password" name="password" id="password">
         </div>
         <div class="form-group">
-            <label for="password">Подтвердите пароль</label><br>
+            <label for="password">РџРѕРґС‚РІРµСЂРґРёС‚Рµ РїР°СЂРѕР»СЊ</label><br>
             <input type="password" name="password" id="password">
         </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
+        <button type="submit" class="btn btn-primary">РћС‚РїСЂР°РІРёС‚СЊ</button>
     </form>
 </div>

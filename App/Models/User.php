@@ -22,9 +22,11 @@ class User extends Model
     {
         return $this->email;
     }
+
     public function getName(){
         return $this->name;
     }
+
     public function __get($k){
         switch ($k){
             case 'user':
@@ -33,5 +35,9 @@ class User extends Model
             default:
                 return null;
         }
+    }
+    
+    protected function dataCompare($val){
+
     }
 }

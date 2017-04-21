@@ -4,13 +4,13 @@ require_once __DIR__ . '/autoload.php';
 $userName = 'admin';
 $controller = new \App\Controllers\Product();
 $action = $_GET['action'] ?: 'Index';
-$title = 'ToApp | Áëþäà êàòåãîðèè';
+$title = 'ToApp | Ð‘Ð»ÑŽÐ´Ð° ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸';
 include __DIR__ . '/App/templates/index_top.php';
 try {
     $controller->action($action);
 } catch(\App\Exceptions\Core $e){
-    echo 'Âîçíèêëî èñêëþ÷åíèå ' . $e->getMessage();
+    echo 'Ð’Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¾ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ ' . $e->getMessage();
 }catch (\App\Exceptions\Db $e) {
-    echo 'Ïðîáëåìû ñ áàçîé äàííûõ: ' . $e->getMessage();
+    echo 'ÐŸÑ€Ð¾Ð±Ð»ÐµÐ¼Ñ‹ Ñ Ð±Ð°Ð·Ð¾Ð¹ Ð´Ð°Ð½Ð½Ñ‹Ñ…: ' . $e->getMessage();
 }
 include  __DIR__ . '/App/templates/index_bottom.php';

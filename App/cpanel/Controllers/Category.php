@@ -24,12 +24,12 @@ class Category
 
     public function beforeAction()
     {
-        //$ex = new Db('Ñîîáùåíèå îá èñêëþ÷åíèè');
+        //$ex = new Db('Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¾Ð± Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¸');
         //throw $ex;
     }
     public function actionIndex()
     {
-        $this->view->blocktitle = 'Âñå êàòåãîðèè.';
+        $this->view->blocktitle = 'Ð’ÑÐµ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸.';
         $this->view->categories = \App\cpanel\Models\Category::findAll();
         $this->view->display(__DIR__ . '/../templates/a_categories.php');
     }

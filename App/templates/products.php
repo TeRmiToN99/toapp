@@ -1,14 +1,17 @@
 <div class="col-sm-12 col-md-12 well">
     <div>
-        <form action="../../products.php" method="get">
+        <!--<form action="../../products.php" method="get">
             <select class="form-control catfilter" name="category_id"">
-            <?php foreach ($categories as $category):?>
-                <option <?if($category->id == $_GET['category_id']){echo 'selected'; $vcat = '"'. $category->title . '"';}?> value='<?=$category->id;?>'><?=$category->title?></option>
-            <?php endforeach;?>
+            <?//php foreach ($categories as $category):?>
+                <option <?//if($category->id == $_GET['category_id']){echo 'selected'; $vcat = '"'. $category->title . '"';}?> value='<?=$category->id;?>'><?=$category->title?></option>
+            <?//php endforeach;?>
             </select>
             <input type="text" style="display: none" name="action" value="FindByIdCategory">
             <input type="submit" class="btn btn-success" value="Вывести">
-        </form>
+        </form>-->
+        <?php foreach ($categories as $category):?>
+            <a class="btn btn-success" href="../../products.php?action=FindByIdCategory&category_id=<?=$category->id?>"><?=$category->title?></a>
+        <?php endforeach;?>
     </div>
     <div>
         <h3><?=$blocktitle; echo $vcat; echo(' (' . count($products) . ')');?></h3>

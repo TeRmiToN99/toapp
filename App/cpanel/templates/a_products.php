@@ -7,7 +7,7 @@
             <?php endforeach;?>
             </select>
             <input type="text" style="display: none" name="action" value="FindByIdCategory">
-            <input type="submit" class="btn btn-success" value="Âûâåñòè">
+            <input type="submit" class="btn btn-success" value="Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸">
         </form>
     </div>
     <div>
@@ -22,6 +22,6 @@
                     <?= $product->lead; ?>
                 </div>
             </div>
-        <?php endforeach;}else echo 'Âûáðàííàÿ êàòåãîðèÿ íå ñîäåðæèò òîâàðîâ!';?>
+        <?php endforeach;}else echo 'Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð°Ñ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ñ Ð½Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²!';?>
     </div>
 </div>

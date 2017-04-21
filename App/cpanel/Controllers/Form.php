@@ -31,31 +31,31 @@ class Form
     }
 
     public function actionCategory(){
-        $this->view->blocktitle = 'Äîáàâèòü êàòåãîðèþ';
+        $this->view->blocktitle = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸ÑŽ';
         $this->view->categories = \App\cpanel\Models\Category::findAll();
         $this->view->display(__DIR__ . '/../templates/form_category.php');
     }
 
     public function actionUser(){
-        $this->view->blocktitle = 'Äîáàâèòü ïîëüçîâàòåëÿ';
+        $this->view->blocktitle = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ';
         $this->view->display(__DIR__ . '/../templates/form_user.php');
     }
 
     public function actionProduct(){
-        $this->view->blocktitle = 'Äîáàâèòü áëþäî';
+        $this->view->blocktitle = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð±Ð»ÑŽÐ´Ð¾';
         $this->view->categories = \App\cpanel\Models\Category::findAll();
         $this->view->display(__DIR__ . '/../templates/form_product.php');
     }
 
     public function actionNews(){
-        $this->view->blocktitle = 'Äîáàâèòü íîâîñòü';
+        $this->view->blocktitle = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½Ð¾Ð²Ð¾ÑÑ‚ÑŒ';
         $this->view->users = User::findAll();
         $this->view->allnews = News::findAll();
         $this->view->display(__DIR__ . '/../templates/form_news.php');
     }
 
     public function actionUpdateProduct(){
-        $this->view->blocktitle = 'Èçìåíèòü òîâàð';
+        $this->view->blocktitle = 'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€';
         $this->view->product = Product::findById($_GET['product_id']);
         $this->view->categories = \App\cpanel\Models\Category::findAll();
         $this->view->display(__DIR__ . '/../templates/form_product.php');

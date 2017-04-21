@@ -64,8 +64,12 @@
     background-color: #fff;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    display: none;
 }
 
+.fa-angle-down{
+    display: none;
+}
 .top-nav>.open>.dropdown-menu>li>a {
     white-space: normal;
 }
@@ -202,4 +206,8 @@ fieldset{
 .block-news {
     float: left;
     margin: 10px;
+}
+
+a.btn-succes{
+    width: 150px!important;
 }

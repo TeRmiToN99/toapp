@@ -9,7 +9,7 @@ $action = $_GET['action'] ?: 'Create';
 try{
     $controller->action($action);
 } catch (\App\Exceptions\Core $e){
-    echo 'Âîçíèêëî èñêëş÷åíèå ' . $e->getMessage();
+    echo 'Ğ’Ğ¾Ğ·Ğ½Ğ¸ĞºĞ»Ğ¾ Ğ¸ÑĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ ' . $e->getMessage();
 }catch (\App\Exceptions\Db $e){
-    echo 'Ïğîáëåìû ñ áàçîé äàííûõ: ' . $e->getMessage();
+    echo 'ĞŸÑ€Ğ¾Ğ±Ğ»ĞµĞ¼Ñ‹ Ñ Ğ±Ğ°Ğ·Ğ¾Ğ¹ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ…: ' . $e->getMessage();
 }
