@@ -211,3 +211,7 @@ fieldset{
 a.btn-succes{
     width: 150px!important;
 }
+.loginform{
+    width: 250px;
+    margin: 0 auto;
+}

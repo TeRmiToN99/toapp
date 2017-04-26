@@ -37,7 +37,4 @@ class User extends Model
         }
     }
     
-    protected function dataCompare($val){
-
-    }
 }

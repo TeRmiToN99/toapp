@@ -46,4 +46,18 @@ abstract class Model
             return false;
         }
     }
+
+    public function findUser($nikname){
+        if ($nikname != ' ') {
+            $db = Db::instance();
+            return $db->query(
+                'SELECT * FROM ' . static::TABLE
+                . ' WHERE nikname = :nikname',
+                [':nikname' => $nikname],
+                static::class
+            );
+        } else {
+            return false;
+        }
+    }
 }
