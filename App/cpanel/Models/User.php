@@ -10,7 +10,7 @@ class User extends Model
 {
     const TABLE = 'users';
 
-    public $name;
+    public $firstname;
     public $email;
 
     /**
@@ -33,5 +33,15 @@ class User extends Model
             default:
                 return null;
         }
+    }
+
+    public function preInsert($data){
+        foreach ($data as $res => $val){
+            if('password' == $res){
+                $val = md5($val);
+            }
+            $this->$res = $val;
+        }
+        return [];
     }
 }

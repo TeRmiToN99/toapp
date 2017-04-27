@@ -58,13 +58,21 @@ class Post
         $this->view->allnews = News::findAll();
         $this->view->display(__DIR__ . '/../templates/form_news.php');
     }
+
+    public function insertUser(){
+        $this->user = new User();
+        $this->user->preInsert($this->data);
+        $this->user->insert();
+        $this->view = new View();
+        $this->view->display(__DIR__ . '/../templates/index_location.php');
+    }
+
     public function insertCategory(){
         $this->category = new Category();
         $this->category->preInsert($this->data);
         $this->category->insert();
         $res = 'Успешно';
         $this->view = new View();
-        $_POST['message'] = 'Добавление категории произошло ' . $res;
         $this->view->categories = Category::findAll();
         $this->view->page = 'index.php';
         $this->view->display(__DIR__ . '/../templates/index_location.php');

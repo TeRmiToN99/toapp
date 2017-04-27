@@ -2,8 +2,8 @@
     <h1>Добавить пользователя</h1>
     <form action="Post.php?action=Insert&post_type=User" method="post">
         <div class="form-group">
-            <label for="nickname">Никнейм</label><br>
-            <input type="text" name="nickname" id="nickname">
+            <label for="login">Логин</label><br>
+            <input type="text" name="login" id="login">
         </div>
         <div class="form-group">
             <label for="firstname">Имя</label><br>
@@ -19,10 +19,6 @@
         </div>
         <div class="form-group">
             <label for="password">Пароль</label><br>
-            <input type="password" name="password" id="password">
-        </div>
-        <div class="form-group">
-            <label for="password">Подтвердите пароль</label><br>
             <input type="password" name="password" id="password">
         </div>
         <button type="submit" class="btn btn-primary">Отправить</button>

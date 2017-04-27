@@ -36,11 +36,13 @@ class User extends Model
         $this->view->display(__DIR__ . '/../templates/login.php');
     }
 
-    protected function actionDataCompare($login)
+    public function DataCompare($login, $password)
     {
-        //$password = md5($password);
+        $password = md5($password);
         $user = \App\Models\User::findUser($login);
+        setcookie('login', $login, time() + 3600 * 24 * 31);
         $_SESSION['login'] = $login; //создание сессии пользователя
+
         return $user;
     }
 
@@ -49,8 +51,7 @@ class User extends Model
         if (isset($_POST['login'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];
-            $this->view->user = $this->actionDataCompare($login);
-            $_SESSION['login'] = $login; //создание сессии пользователя
+            DataCompare($login, $password);
             header("location: index.php");
         } else {
             header("location: login.php?page=error"); //ошибка ввода
@@ -58,6 +59,6 @@ class User extends Model
     }
 
     public function actionLogout(){
-
+        setcookie('login', '', time() - 3600 * 24 * 31);
     }
 }

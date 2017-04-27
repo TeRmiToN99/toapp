@@ -47,13 +47,13 @@ abstract class Model
         }
     }
 
-    public function findUser($nikname){
-        if ($nikname != ' ') {
+    public function findUser($login){
+        if ($login != ' ') {
             $db = Db::instance();
             return $db->query(
                 'SELECT * FROM ' . static::TABLE
-                . ' WHERE nikname = :nikname',
-                [':nikname' => $nikname],
+                . ' WHERE login = :login',
+                [':login' => $login],
                 static::class
             );
         } else {

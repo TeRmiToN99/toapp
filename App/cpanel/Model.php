@@ -1,14 +1,11 @@
 <?php
-
 namespace App\cpanel;
-
 
 abstract class Model
 {
     const TABLE = '';
     //public static $table = 'users';
     public $id;
-
     public static function findAll()
     {
         $db = Db::instance();
@@ -17,7 +14,6 @@ abstract class Model
             [], static::class
         );
     }
-
     public static function findById(int $id)
     {
         if ($id != ' ') {
@@ -32,12 +28,10 @@ abstract class Model
             return false;
         }
     }
-
     public function isNew()
     {
         return empty($this->id);
     }
-
     public function insert()
     {
         if (!$this->isNew()) {
@@ -77,15 +71,15 @@ abstract class Model
     }
 
     public function update(){
-            $columns = [];
-            $values = [];
-            foreach ($this as $k => $v) {
-                if ('id' == $k) {
-                    continue;
-                }
-                $columns[] = $k;
-                $values[':' . $k] = $v;
+        $columns = [];
+        $values = [];
+        foreach ($this as $k => $v) {
+            if ('id' == $k) {
+                continue;
             }
+            $columns[] = $k;
+            $values[':' . $k] = $v;
+        }
         $sql = 'UPDATE products  SET
                 title = :title,
                 lead = :lead,

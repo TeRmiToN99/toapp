@@ -25,6 +25,3 @@ try {
 include __DIR__ . '/templates/index_bottom.php';
 
 ?>
-<div>
-<?php var_dump($_GET['message']);?>
-</div>
