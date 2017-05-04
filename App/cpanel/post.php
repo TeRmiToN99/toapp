@@ -1,27 +1,29 @@
 <?php
 
 require __DIR__ . '/../../autoload.php';
-include __DIR__ . '/templates/index_top.php';
-
-//$user = \App\Models\User::findById(1);
-$userName = 'admin';
+session_start();
+if (($_SESSION['login'] || $_COOKIE['login']) == '')
+{
+    header("Location: /../../login.php");
+}else {
+    include __DIR__ . '/templates/index_top.php';
 //include __DIR__ . '/templates/index_content.php';
 
-if(!empty($_POST)) {
-    $controller = new \App\cpanel\Controllers\Post($_POST);
-    $action = $_GET['action'] ?: 'Index';
-    $post_type = $_GET['post_type'] ?: '';
-}else{
-    $controller = new \App\cpanel\Controllers\Form();
-    $action = $_GET['action'] ?: 'Index';
+    if (!empty($_POST)) {
+        $controller = new \App\cpanel\Controllers\Post($_POST);
+        $action = $_GET['action'] ?: 'Index';
+        $post_type = $_GET['post_type'] ?: '';
+    } else {
+        $controller = new \App\cpanel\Controllers\Form();
+        $action = $_GET['action'] ?: 'Index';
+    }
+    try {
+        $controller->action($action, $post_type);
+    } catch (\App\Exceptions\Core $e) {
+        echo 'Возникло исключение ' . $e->getMessage();
+    } catch (\App\Exceptions\Db $e) {
+        echo 'Проблемы с базой данных: ' . $e->getMessage();
+    }
+    include __DIR__ . '/templates/index_bottom.php';
 }
-try {
-    $controller->action($action, $post_type);
-} catch(\App\Exceptions\Core $e){
-    echo 'Возникло исключение ' . $e->getMessage();
-}catch (\App\Exceptions\Db $e) {
-    echo 'Проблемы с базой данных: ' . $e->getMessage();
-}
-include __DIR__ . '/templates/index_bottom.php';
-
 ?>

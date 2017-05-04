@@ -9,9 +9,9 @@
 
     <!--AppStyle-->
     <link rel="stylesheet" href="/App/templates/style.css">
+    <link rel="stylesheet" href="/App/templates/viewbox.css">
     <!-- Bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -48,12 +48,12 @@
                 </a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><? echo($nikname);?><b class="fa fa-angle-down"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><? echo($login);?><b class="fa fa-angle-down"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a></li>
                     <li><a href="#"><i class="fa fa-fw fa-cog"></i> Настройки</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Выйти</a></li>
+                    <li><a href="<?='user.php?action=Logout';?>"><i class="fa fa-fw fa-power-off"></i> Выйти</a></li>
                 </ul>
             </li>
         </ul>

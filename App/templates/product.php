@@ -4,14 +4,39 @@
             <div class="product_item">
                 <div class="header_block">
                     <h2><?= $product->title;?></h2>
-                    <a href="<?php echo $product->url_img; ?>" target="_blank"><img class="product_img" src="<?php echo $product->url_img; ?>"></a>
+                    <a class="thumbnail" href="<?php echo $product->url_img; ?>" target="_blank"><img title="<?= $product->title;?>" class="product_img" src="<?php echo $product->url_img; ?>"></a>
                 </div>
-                <div class="link_block">
-                    <a class="btn btn-info" href="#">23см</a>
-                    <a class="btn btn-info" href="#">33см</a>
-                </div>
+
+                <? if('Пицца'==$product->category_title && '' != $product->tech_cart23){ ?>
+                    <div class="link_block">
+                        <a class="btn btn-info popup-link" target="_blank" title="23см тех.карта <?= $product->title;?>" href="#popup">23см</a>
+                        <div style="display:none;">
+                            <div id="popup">
+                                <iframe class="product_frame" src="<?php echo $product->tech_cart23; ?>"></iframe>
+                                <p><button type="button" class="btn btn-info close-button">Закрыть</button></p>
+                            </div>
+                        </div>
+                        <a class="btn btn-info popup-link" target="_blank" title="33см тех.карта <?= $product->title;?>" href="#popup1">33см</a>
+                        <div style="display:none;">
+                            <div id="popup1">
+                                <iframe class="product_frame" src="<?php echo $product->tech_cart33; ?>"></iframe>
+                                <p><button type="button" class="btn btn-info close-button">Закрыть</button></p>
+                            </div>
+                        </div>
+                    </div>
+                <?}elseif('' != $product->tech_cart23){?>
+                    <div class="link_block">
+                        <a class="btn btn-info popup-link" target="_blank" title="23см тех.карта <?= $product->title;?>" href="#popup">тех. карта</a>
+                        <div style="display:none;">
+                            <div id="popup">
+                                <iframe class="product_frame" src="<?php echo $product->tech_cart23; ?>"></iframe>
+                                <p><button type="button" class="btn btn-info close-button">Закрыть</button></p>
+                            </div>
+                        </div>
+                    </div>
+                <?}?>
                 <div>
-                    <label><?= $product->category_title;?></label>
+                    <!--<label><?= $product->category_title;?></label>-->
                     <fieldset>
                         <legend>Краткое описание</legend>
                         <?= $product->lead; ?>
@@ -19,25 +44,6 @@
                     <fieldset>
                         <legend>Технология</legend>
                         <p></p><?= $product->description; ?></p>
-                    </fieldset>
-                </div>
-                <div>
-                    <fieldset>
-                        <legend>Технологическая карта</legend>
-                    <!-- Навигация -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li><a href="#23sm" aria-controls="23sm" role="tab" data-toggle="tab">23см</a></li>
-                        <li><a href="#33sm" aria-controls="33sm" role="tab" data-toggle="tab">33см</a></li>
-                    </ul>
-                    <!-- Содержимое вкладок -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="23sm">
-                            <iframe class="product_frame" src="<?php echo $product->tech_cart23; ?>"></iframe>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="33sm">
-                            <iframe class="product_frame" src="<?php echo $product->tech_cart33; ?>"></iframe>
-                        </div>
-                    </div>
                     </fieldset>
                 </div>
             </div>

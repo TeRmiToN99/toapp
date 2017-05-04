@@ -7,21 +7,17 @@
         </div>
         <div class="form-group">
             <label for="user">Автор:</label><br>
-            <select class="form-control" id="user">
+            <select class="form-control" id="user_id" name="user_id">
                 <?php foreach ($users as $user):?>
-                    <option><?=$user->nikname?></option>
+                    <option value="<?=$user->id;?>"><?=$user->name?></option>
                 <?php endforeach;?>
             </select>
         </div>
         <div class="form-group">
-            <label for="lead">Краткое описание</label><br>
+            <label for="lead">Описание</label><br>
             <div class="col-5">
-                <textarea class="form-control" id="lead" rows="3"></textarea>
+                <textarea class="form-control" name="lead" id="lead" rows="3"></textarea>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="description">Описание</label><br>
-            <textarea class="form-control" id="description" rows="7"></textarea>
         </div>
         <div class="form-group">
         <button type="submit" class="btn btn-primary">Отправить</button>

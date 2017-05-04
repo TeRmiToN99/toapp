@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -49,12 +48,12 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=$user->name;?><b class="fa fa-angle-down"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=($_SESSION['login']);?><b class="fa fa-angle-down"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a></li>
                         <li><a href="#"><i class="fa fa-fw fa-cog"></i> Настройки</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Выйти</a></li>
+                        <li><a href="<?='user.php?action=Logout'?>"><i class="fa fa-fw fa-power-off"></i> Выйти</a></li>
                     </ul>
                 </li>
             </ul>

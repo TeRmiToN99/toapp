@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Controllers;
+namespace App\cpanel\Controllers;
 
-use App\Model;
-use App\View;
+use App\cpanel\Model;
+use App\cpanel\View;
 
 
 
@@ -39,10 +39,12 @@ class User extends Model
     public function DataCompare($login, $password)
     {
         $password = md5($password);
-        setcookie('login', $login, time() + 3600 * 24 * 31);
-        $_SESSION['login'] = $login; //создание сессии пользователя
-        $user = \App\Models\User::findUser($login);
-        return $user;
+        $user = \App\cpanel\Models\User::findUser($login);
+        if($user[0]->password == $password){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public function actionLogin(){
@@ -50,19 +52,27 @@ class User extends Model
         if (isset($_POST['login'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];
-            $this->DataCompare($login, $password);
-            header("location: index.php");
+            $val= $this->DataCompare($login, $password);
+            if($val){
+                setcookie('login', $login, time() + 3600 * 24 * 31);
+                $_SESSION['login'] = $login; //создание сессии пользователя
+                $this->view->msg = 'Логин и пароль верны. ';
+            }else{
+                $this->view->msg = 'Авторизация не удалась. <br>Пара логин пароль не верны.';
+            }
+            //header("location: index.php");
+            header('Location: /App/cpanel/index.php');
         } else {
             header("location: login.php?page=error"); //ошибка ввода
         }
+
     }
 
-    public function actionLogout()
-    {
+    public function actionLogout(){
         session_start();
         unset($_COOKIE);
         unset($_SESSION);
         session_destroy();
-        include_once(__DIR__ . '/../templates/index_location.php');
+        include_once (__DIR__ . '/../templates/index_location.php');
     }
 }

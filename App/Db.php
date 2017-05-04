@@ -14,6 +14,7 @@ class Db
     {
         try{
             $this->dbh = new \PDO('mysql:host=localhost;dbname=toapp','root', '');
+            $this->dbh->exec('SET NAMES utf8');
         } catch (\PDOException $e) {
             throw new \App\Exceptions\Db($e->getMessage());
         }

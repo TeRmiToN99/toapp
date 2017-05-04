@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/autoload.php';
 session_start();
-if ($_SESSION['login'] == '')
+if (($_SESSION['login'] && $_COOKIE['login']) == '')
 {
-    header("Location: /login.php");
-}else{    
+    header("Location: login.php");
+}else {
     $url = $_SERVER['REQUEST_URI'];
     $title = 'ToApp | ';
     include_once __DIR__ . '/App/templates/index_top.php';

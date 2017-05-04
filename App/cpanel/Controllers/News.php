@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controllers;
+namespace App\cpanel\Controllers;
 
 
 use App\Exceptions\Core;
 use App\Exceptions\Db;
-use App\MultiException;
-use App\View;
+use App\cpanel\MultiException;
+use App\cpanel\View;
 
 class News
 {
@@ -33,21 +33,21 @@ class News
     public function actionIndex()
     {
         $this->view->blocktitle = 'Новости.';
-        $this->view->allnews = \App\Models\News::findAll();
+        $this->view->allnews = \App\cpanel\Models\News::findAll();
         $this->view->display(__DIR__ . '/../templates/news.php');
     }
 
     protected function actionNew()
     {
         $id = (int)$_GET['id'];
-        $this->view->article= \App\Models\News::findById($id);
+        $this->view->article= \App\cpanel\Models\News::findById($id);
         $this->view->display(__DIR__ . '/../templates/article.php');
     }
 
     protected function actionCreate(){
         try
         {
-            $article = new \App\Models\News();
+            $article = new \App\cpanel\Models\News();
             $article->fill([]);
             $article->save();
         } catch (MultiException $e) {

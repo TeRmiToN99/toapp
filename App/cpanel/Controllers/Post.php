@@ -8,6 +8,7 @@ use App\cpanel\Models\News;
 use App\cpanel\Models\Product;
 use App\cpanel\View;
 use App\cpanel\Models\User;
+use App\cpanel\MultiException;
 
 class Post
 {
@@ -59,6 +60,7 @@ class Post
         $this->view->display(__DIR__ . '/../templates/form_news.php');
     }
 
+
     public function insertUser(){
         $this->user = new User();
         $this->user->preInsert($this->data);
@@ -66,12 +68,23 @@ class Post
         $this->view = new View();
         $this->view->display(__DIR__ . '/../templates/index_location.php');
     }
-
+    public function insertNews(){
+        try
+        {
+            $this->article = new News();
+            $this->article->preInsert($this->data);
+            $this->article->insert();
+            $this->view = new View();
+        } catch (Exception $e) {
+            $this->view->errors = $e;
+        }
+        $this->view->display(__DIR__ . '/../templates/index_location.php');
+    }
     public function insertCategory(){
         $this->category = new Category();
         $this->category->preInsert($this->data);
         $this->category->insert();
-        $res = 'Успешно';
+        $this->view->res = 'Успешно';
         $this->view = new View();
         $this->view->categories = Category::findAll();
         $this->view->page = 'index.php';
@@ -80,32 +93,39 @@ class Post
     }
 
     public function insertProduct(){
-        $this->product = new Product();
-        if (true == $this->product->uploadImage($_FILES['url_img'])){
-            $this->product->uploadTechCart($_FILES['tech_cart23']);
-            $this->product->uploadTechCart($_FILES['tech_cart33']);
-            $message = 'успешно';
+        try{
+            $this->product = new Product();
+            if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
+            if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
+            if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
             $this->product->preInsert($this->data);
             $this->product->insert();
             $this->view = new View();
-        }else{
-            $message = 'неудачно';
+            $this->view->page = 'index.php';
+            $this->view->display(__DIR__ . '/../templates/index_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
         }
-        $_GET['message'] = 'Добавление блюда произошло ' . $message;
-        $this->view->page = 'index.php';
-        $this->view->display(__DIR__ . '/../templates/index_location.php');
+
     }
 
     public function updateProduct(){
+        try{
         $this->product = new Product();
-        $this->product->uploadImage($_FILES['url_img']);
-        $this->product->uploadTechCart('23');
-        $this->product->uploadTechCart('33');
+        if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
+        if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
+        if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
         $this->product->preInsert($this->data);
         $this->product->update();
         $this->view = new View();
         $_GET['message'] = 'Добавление блюда произошло ';
         $this->view->page = 'form.php?action=Product';
-        //$this->view->display(__DIR__ . '/../templates/index_location.php');
+        $this->view->display(__DIR__ . '/../templates/index_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
     }
+
 }

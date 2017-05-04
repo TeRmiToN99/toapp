@@ -151,7 +151,7 @@
 #description {
     max-width: 600px;
 }
-#user {
+#user_id {
     max-width: 150px;
 }
 @media (max-width: 768px) {

@@ -182,8 +182,8 @@ fieldset{
     margin-top: 10px!important;
 }
 .product_frame{
-    width: 100%;
-    height: 500px;
+    width: 900px;
+    height: 768px;
 }
 .header_block{
     float: left;
@@ -210,6 +210,11 @@ fieldset{
 
 a.btn-succes{
     width: 150px!important;
+}
+a.btn {
+    margin-bottom: 5px;
+    min-width: 200px;
+    max-width: 200px;
 }
 .loginform{
     width: 250px;

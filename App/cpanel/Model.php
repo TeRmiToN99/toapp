@@ -48,12 +48,12 @@ abstract class Model
         }
         $sql = '
             INSERT INTO ' . static::TABLE . '
-            (' . implode(',', $columns) . ')
+            (' . implode(', ', $columns) . ')
              VALUES
-             (' . implode(',', array_keys($values)) . ')
+             (' . implode(', ', array_keys($values)) . ')
              ';
         $db = Db::instance();
-        $db->query($sql, $values, static::class);
+        return $db->query($sql, $values, static::class);
     }
 
     public static function findByIdCategory(int $id){
@@ -73,23 +73,20 @@ abstract class Model
     public function update(){
         $columns = [];
         $values = [];
+        $str = '';
         foreach ($this as $k => $v) {
             if ('id' == $k) {
                 continue;
             }
             $columns[] = $k;
             $values[':' . $k] = $v;
+            $str =  $str . $k . ' = :' . $k . ', ';
         }
-        $sql = 'UPDATE products  SET
-                title = :title,
-                lead = :lead,
-                description = :description,
-                category_id = :category_id,
-                tech_cart23 = :tech_cart23,
-                tech_cart33 = :tech_cart33,
-                url_img = :url_img
-                WHERE id = :id';
+        $str = substr($str,0,-2);
+        $sql = 'UPDATE ' . static::TABLE . ' SET 
+                '. $str .
+                ' WHERE id = :id';
         $db = Db::instance();
-        $db->queryUpdate($sql, $values, static::class);
+        return $db->queryUpdate($sql, $values, static::class);
     }
 }

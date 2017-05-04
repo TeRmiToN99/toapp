@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-12 well" id="form_product">
     <h1><?=$blocktitle;?></h1>
-    <form action="post.php?action=<? echo(!empty($product->id) ? 'Update': 'Insert');?>&post_type=Product" method="post" enctype="multipart/form-data">
+    <form action="/App/cpanel/post.php?action=<? echo(!empty($product->id) ? 'Update': 'Insert');?>&post_type=Product" method="post" enctype="multipart/form-data">
         <div class="block_info">
             <div class="form-group">
                 <label for="title">Заголовок</label><br>

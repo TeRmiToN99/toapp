@@ -3,6 +3,7 @@
 
 namespace App\cpanel\Models;
 
+use App\cpanel\Db;
 use App\cpanel\Model;
 
 class User extends Model
@@ -43,5 +44,19 @@ class User extends Model
             $this->$res = $val;
         }
         return [];
+    }
+
+    public function findUser($login){
+        if ($login != ' ') {
+            $db = Db::instance();
+            return $db->query(
+                'SELECT * FROM ' . static::TABLE
+                . ' WHERE login = :login',
+                [':login' => $login],
+                static::class
+            );
+        } else {
+            return false;
+        }
     }
 }

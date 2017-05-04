@@ -6,8 +6,8 @@
             <input type="text" name="login" id="login">
         </div>
         <div class="form-group">
-            <label for="firstname">Имя</label><br>
-            <input type="text" name="firstname" id="firstname">
+            <label for="name">Имя</label><br>
+            <input type="text" name="name" id="name">
         </div>
         <div class="form-group">
             <label for="lastname">Фамилия</label><br>
