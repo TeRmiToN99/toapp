@@ -1,5 +1,0 @@
-# AuthType Basic
-# AutName "Control Panel"
-# AutUserFile D:\OpenServer\domains\toapp\cpanel\.htpasswd
-# Require valid-user
-AddDefaultCharset UTF-8

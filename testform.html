@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery.json.js"></script>
+</head>
+<body>
+<form action="/jsontomail.php" method="post">
+    <div class="main">
+
+        Никнейм:<br />
+        <input name="username" type="text" maxlength="15" value="" /><br />
+
+        Пароль:<br />
+        <input name="password" type="text" maxlength="30" value="" /><br />
+
+        E-Mail:<br />
+        <input name="email" type="text" maxlength="50" value="" /><br />
+
+
+        Транслитерация: <input type="checkbox" name="tr" value="1" /><br />
+
+
+        <input type="submit" value="Отправить" class="but" /><br />
+    </div>
+</form>
+</body>
+</html>
