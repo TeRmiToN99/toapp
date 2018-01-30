@@ -4,7 +4,7 @@
             <div class="product_item">
                 <div class="header_block">
                     <h2><?= $product->title;?></h2>
-                    <a href="<?php echo $product->url_img; ?>" target="_blank"><img class="product_img" src="<?php echo $product->url_img; ?>"></a>
+                    <a class="thumbnail" href="<?php echo $product->url_img; ?>" target="_blank"><img class="product_img" src="<?php echo $product->url_img; ?>"></a>
                 </div>
                 <div class="link_block">
                     <a class="btn btn-info" href="#">23см</a>

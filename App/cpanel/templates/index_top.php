@@ -8,10 +8,32 @@
     <title><?php if (!empty($title)){echo $title;} ?></title>
 
     <!--AppStyle-->
+
+    <script src="/App/Plugins/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+            selector:'textarea#description',
+            branding: false,
+            resize: 'both',
+            width: 800,
+            directionality : 'ru',
+            skin: "lightgray",
+            theme: 'modern',
+            //language: 'ru',
+            plugins: 'print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+            toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+            image_advtab: true,
+            templates: [
+                { title: 'Таблица', content: 'Test 1' },
+                { title: 'Test template 2', content: 'Test 2' }
+            ],
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i'
+            ]
+        });</script>
     <link rel="stylesheet" href="/App/cpanel/templates/style.css">
+    <link rel="stylesheet" href="/App/templates/viewbox.css">
     <!-- Bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

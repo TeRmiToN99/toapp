@@ -18,12 +18,12 @@
         <?php if (!empty($products)){foreach ($products as $product): ?>
             <a href="../../products.php?action=FindById&product_id=<?echo $product->id?>"><div class="products_item">
                 <div>
-                    <img class="product_img" src="<?php echo $product->url_img; ?>">
+                    <img class="product_img hidden-xs hidden-sm" src="<?php echo $product->url_img; ?>">
                 </div>
                     <h3><?php echo $product->title;?></h3></a>
-                <div>
-                    <?= $product->lead; ?>
-                </div>
+                <!--<div>
+                    <?//= $product->lead; ?>
+                </div>-->
             </div>
         <?php endforeach;}else echo 'Выбранная категория не содержит товаров!';?>
     </div>

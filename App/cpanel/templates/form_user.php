@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-12 well" id="form_user">
     <h1>Добавить пользователя</h1>
-    <form action="Post.php?action=Insert&post_type=User" method="post">
+    <form action="/App/cpanel/post.php?action=Insert&post_type=User" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="login">Логин</label><br>
             <input type="text" name="login" id="login">
