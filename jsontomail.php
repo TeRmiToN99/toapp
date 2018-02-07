@@ -107,9 +107,11 @@ if($_POST['request'] != '') {
 
     /* и теперь отправим из */
     mail($to, $subject, $message, $headers);
-    echo  'success';
+    echo  '200';
+    return 200;
 
 }else{
-    echo  'error';
+    echo  '400';
+    return 400;
 }
 session_destroy();

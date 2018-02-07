@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-md-12 well" id="form_product">
     <h1><?=$blocktitle;?></h1>
     <form action="/App/cpanel/post.php?action=<? echo(!empty($product->id) ? 'Update': 'Insert');?>&post_type=Product" method="post" enctype="multipart/form-data">
-        <div class="block_info">
+        <div class="block_info col-sm-6 col-md-6">
             <div class="form-group">
                 <label for="title">Заголовок</label><br>
                 <input type="text" name="title" id="title" value="<?=$product->title; ?>">
@@ -22,11 +22,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="description">Технология</label><br>
+                <label for="description">Технология:</label><br>
                 <textarea class="form-control" id="description" name="description"rows="5"><?=$product->description;?></textarea>
             </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
         </div>
-        <div class="block_img_links">
+        <!--<div class="block_img_links">
             <div class="form-group">
                 <label for="tech_cart23">Тех.карта 23 см</label>
                 <input type="file" class="form-control-file" name="tech_cart23" id="tech_cart23">
@@ -37,13 +38,15 @@
                 <input type="file" class="form-control-file" name="tech_cart33" id="tech_cart33">
                 <? if(!empty($product->tech_cart33)){?><a href="<?=$product->tech_cart33;?>" target="_blank">текущая тех.карта</a> <?}?>
             </div>
+
+        </div>-->
+        <div class="product_image_block col-sm-4 col-md-4">
+            <h4>Текущая основная фотография: <?=$product->url_img;?></h4>
+            <a class="thumbnail" href="<?=$product->url_img;?>" target="_blank"><img src="<?=$product->url_img;?>"></a>
             <div class="form-group">
                 <label for="url_img">Основное фото</label>
                 <input type="file" class="form-control-file" name="url_img" id="url_img">
             </div>
         </div>
-        <h4>Текущая основная фотография: <?=$product->url_img;?></h4>
-        <a href="<?=$product->url_img;?>" target="_blank"><img src="<?=$product->url_img;?>"></a>
-        <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </div>

@@ -29,7 +29,7 @@
 <div id="noty-holder"></div>
 <div id="wrapper">
     <!-- Navigation -->
-    <nav class="navbar hidden-xs hidden-sm navbar-inverse navbar-fixed-top" role="navigation">
+    <nav id="navbar_menu" class="navbar hidden-xs hidden-sm navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">

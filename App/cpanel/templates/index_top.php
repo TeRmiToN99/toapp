@@ -8,30 +8,41 @@
     <title><?php if (!empty($title)){echo $title;} ?></title>
 
     <!--AppStyle-->
+    <link rel="stylesheet" href="/App/cpanel/templates/style.css">
+    <link rel="stylesheet" href="/App/cpanel/templates/viewbox.css">
 
     <script src="/App/Plugins/tinymce/tinymce.min.js"></script>
+
     <script>tinymce.init({
             selector:'textarea#description',
             branding: false,
             resize: 'both',
-            width: 800,
+            height: 350,
             directionality : 'ru',
-            skin: "lightgray",
-            theme: 'modern',
+            skin: "charcoal",
+            //theme: 'modern',
             //language: 'ru',
-            plugins: 'print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
-            toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+            plugins: 'print preview searchreplace autolink directionality visualblocks tabfocus code visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+            toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat',
             image_advtab: true,
             templates: [
-                { title: 'Таблица', content: 'Test 1' },
-                { title: 'Test template 2', content: 'Test 2' }
+                {
+                    title: 'Шаблон тех карты блюда',
+                    description: 'Шаблон техкарты для блюд горячих и холодных цехов',
+                    url:'/App/Plugins/tinymce/templates/techcart_dish.html'
+                },
+                {
+                    title: 'Шаблон тех карты пицца',
+                    description: 'Шаблон техкарты для пицца',
+                    url:'/App/Plugins/tinymce/templates/techcart_pizza.html'
+                }
             ],
             content_css: [
-                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i'
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '/App/cpanel/templates/style.css'
             ]
         });</script>
-    <link rel="stylesheet" href="/App/cpanel/templates/style.css">
-    <link rel="stylesheet" href="/App/templates/viewbox.css">
+
     <!-- Bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
