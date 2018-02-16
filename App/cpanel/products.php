@@ -2,10 +2,7 @@
 require_once __DIR__ . '/../../autoload.php';
 
 session_start();
-if (($_SESSION['login'] || $_COOKIE['login']) == '')
-{
-    header("Location: /../../login.php");
-}else {
+if ( isset ($_SESSION['logged_user']) ){
     $title = 'ToApp | Блюда категории';
     include __DIR__ . '/templates/index_top.php';
     $controller = new \App\cpanel\Controllers\Product();
@@ -18,5 +15,7 @@ if (($_SESSION['login'] || $_COOKIE['login']) == '')
     } catch (\App\Exceptions\Db $e) {
         echo 'Проблемы с базой данных: ' . $e->getMessage();
     }
+}else {
+    header("Location: login.php");
 }
 include __DIR__ . '/templates/index_bottom.php';

@@ -11,7 +11,7 @@ use App\View;
 class User extends Model
 {
     protected $view;
-
+    
     function __construct()
     {
         $this->view = new View();
@@ -35,7 +35,7 @@ class User extends Model
         $this->view->blocktitle = 'Авторизация.';
         $this->view->display(__DIR__ . '/../templates/login.php');
     }
-
+/*
     public function DataCompare($login, $password)
     {
         $password = md5($password);
@@ -44,25 +44,28 @@ class User extends Model
         $user = \App\Models\User::findUser($login);
         return $user;
     }
-
+*/
     public function actionLogin(){
         session_start();
-        if (isset($_POST['login'])) {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
-            $this->DataCompare($login, $password);
+        if (isset($_SESSION['logged_user'])) {
+            //$login = $_POST['login'];
+            //$password = $_POST['password'];
+            //$this->DataCompare($login, $password);
             header("location: index.php");
         } else {
-            header("location: login.php?page=error"); //ошибка ввода
+            require __DIR__ . '/../../error.php';
+            //header("location: error.php"); //ошибка ввода
         }
     }
 
     public function actionLogout()
     {
         session_start();
-        unset($_COOKIE);
-        unset($_SESSION);
+        unset($_SESSION['logged_user']);
+        //header('Location: /');
         session_destroy();
         include_once(__DIR__ . '/../templates/index_location.php');
     }
+
+   
 }

@@ -35,7 +35,7 @@ class User extends Model
         $this->view->blocktitle = 'Авторизация.';
         $this->view->display(__DIR__ . '/../templates/login.php');
     }
-
+/*
     public function DataCompare($login, $password)
     {
         $password = md5($password);
@@ -67,7 +67,18 @@ class User extends Model
         }
 
     }
-
+*/
+    public function actionLogin(){
+        session_start();
+        if (isset($_SESSION['logged_user'])) {
+            //$login = $_POST['login'];
+            //$password = $_POST['password'];
+            //$this->DataCompare($login, $password);
+            header("location: index.php");
+        } else {
+            header("location: error.php"); //ошибка ввода
+        }
+    }
     public function actionLogout(){
         session_start();
         unset($_COOKIE);

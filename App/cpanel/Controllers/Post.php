@@ -62,12 +62,18 @@ class Post
 
 
     public function insertUser(){
-        $this->user = new User();
-        $this->user->preInsert($this->data);
-        $this->user->insert();
-        $this->view = new View();
+        try{
+            $this->user = new User();
+            $this->user->preInsert($this->data);
+            $this->user->insert();
+            $this->view = new View();
+        }catch (Exception $e){
+            $this->view->errors = $e;
+        }
+
         $this->view->display(__DIR__ . '/../templates/index_location.php');
     }
+
     public function insertNews(){
         try
         {
@@ -89,15 +95,15 @@ class Post
         $this->view->categories = Category::findAll();
         $this->view->page = 'index.php';
         $this->view->display(__DIR__ . '/../templates/index_location.php');
-        //echo '<div class="col-sm-12 col-md-12 well">Добавление категории произошло ' . $this->res . '</div>
+
     }
 
     public function insertProduct(){
         try{
             $this->product = new Product();
             if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
-            if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
-            if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
+            //if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
+            //if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
             $this->product->preInsert($this->data);
             $this->product->insert();
             $this->view = new View();
@@ -114,8 +120,8 @@ class Post
         try{
         $this->product = new Product();
         if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
-        if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
-        if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
+        //if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
+        //if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
         $this->product->preInsert($this->data);
         $this->product->update();
         $this->view = new View();

@@ -10,8 +10,6 @@ class User extends Model
     implements HasEmail
 {
     const TABLE = 'users';
-
-    public $firstname;
     public $email;
 
     /**
@@ -35,11 +33,10 @@ class User extends Model
                 return null;
         }
     }
-
     public function preInsert($data){
         foreach ($data as $res => $val){
             if('password' == $res){
-                $val = md5($val);
+                $val = User::cryptPass($val);
             }
             $this->$res = $val;
         }
@@ -58,5 +55,13 @@ class User extends Model
         } else {
             return false;
         }
+    }
+
+    public function cryptPass($pass){
+        return password_hash($pass, PASSWORD_DEFAULT);
+    }
+
+    public function passVerify(string $password , string $hash){
+        return password_verify($password, $hash);
     }
 }

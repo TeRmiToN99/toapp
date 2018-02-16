@@ -2,13 +2,8 @@
 
 require __DIR__ . '/../../autoload.php';
 session_start();
-if (($_SESSION['login'] || $_COOKIE['login']) == '')
-{
-    header("Location: /../../login.php");
-}else {
-    include __DIR__ . '/templates/index_top.php';
-//include __DIR__ . '/templates/index_content.php';
-
+if ( isset ($_SESSION['logged_user']) ){
+    include __DIR__ . '/templates/index_content.php';
     if (!empty($_POST)) {
         $controller = new \App\cpanel\Controllers\Post($_POST);
         $action = $_GET['action'] ?: 'Index';
@@ -19,6 +14,7 @@ if (($_SESSION['login'] || $_COOKIE['login']) == '')
     }
     try {
         $controller->action($action, $post_type);
+
     } catch (\App\Exceptions\Core $e) {
         echo 'Возникло исключение ' . $e->getMessage();
     } catch (\App\Exceptions\Db $e) {
