@@ -7,6 +7,9 @@ if ( isset ($_SESSION['logged_user']) ){
     if (!empty($_POST)) {
         $controller = new \App\cpanel\Controllers\Post($data);
         $action = $_GET['action'] ?: 'Index';
+        if($_GET['action'] === NULL){
+            $action = 'Index';
+        }
     } else {
         $controller = new \App\cpanel\Controllers\Form();
         $action = $_GET['action'] ?: 'Index';

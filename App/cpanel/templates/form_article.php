@@ -1,6 +1,6 @@
-<div class="col-sm-12 col-md-12 well" id="form_news">
+<div class="col-sm-12 col-md-12 well" id="form_article">
     <h1>Добавить новость</h1>
-    <form action="Post.php?action=Insert&post_type=News" method="post">
+    <form id="form_article" action="/App/cpanel/post.php?action=<? echo(!empty($article->id) ? 'Update': 'Insert');?>&post_type=Article" method="post">
         <div class="form-group">
             <label for="title">Заголовок</label><br>
             <input type="text" name="title" id="title">
@@ -26,10 +26,10 @@
 
 <div class="col-sm-12 col-md-12 well">
     <h3>Последние добавленные новости:</h3>
-    <?php foreach ($allnews as $new):?>
+    <?php foreach ($articles as $article):?>
         <div>
-            <h4><?= $new->title;?></h4>
-            <p><?= $new->lead;?></p>
+            <h4><?= $article->title;?></h4>
+            <p><?= $article->lead;?></p>
         </div>
     <?php endforeach;?>
 </div>

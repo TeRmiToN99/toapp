@@ -18,11 +18,24 @@ abstract class Model
     //protected $beanHelper = NULL;
 
 
-    public static function findAll()
+    public function findAll()
     {
         $db = Db::instance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE,
+            [], static::class
+        );
+    }
+
+    /**
+     * @param $params
+     * @return mixed
+     */
+    public function __findAll($params)
+    {
+        $db = Db::instance();
+        return $db->query(
+            'SELECT '. $params .' FROM ' . static::TABLE,
             [], static::class
         );
     }
@@ -55,4 +68,19 @@ abstract class Model
             return false;
         }
     }
+/*
+    public static function prepireParams($params){
+        $str = '';
+        var_dump($params);
+        die;
+        if(isset($params)){
+            foreach ($params as $v){
+                $str.=$v . ', ';
+            }
+            $str = substr($str,-2);
+            return $str;
+        }
+        return false;
+    }
+*/
 }

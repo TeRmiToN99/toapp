@@ -4,7 +4,11 @@
             <div class="product_item">
                 <div class="header_block">
                     <h2><?= $product->title;?></h2>
-                    <a class="thumbnail" href="<?php echo $product->url_img; ?>" target="_blank"><img title="<?= $product->title;?>" class="product_img" src="<?php echo $product->url_img; ?>"></a>
+                    <? if($product->url_img != ''):?>
+                        <a class="thumbnail" href="<?php echo $product->url_img; ?>" target="_blank"><img class="product_img" src="<?php echo $product->url_img; ?>"></a>
+                    <?else:?>
+                        <img src="<?=\App\Models\Product::NOIMG?>">
+                    <?endif;?>
                 </div>
                     <?= $product->category_title;?></label>
                     <fieldset>

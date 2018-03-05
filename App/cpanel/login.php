@@ -8,6 +8,7 @@ if ( isset($data['login']) ) {
         if (\App\Models\User::passVerify($data['password'], $user[0]->password)) {
             //если пароль совпадает, то нужно авторизовать пользователя
             $_SESSION['logged_user'] = $user;
+            $_SESSION['login'] = $user[0]->login;
             header("Location: index.php"); exit;
         } else {
             $errors[] = 'Неверно введен пароль!';
@@ -23,18 +24,22 @@ if ( isset($data['login']) ) {
     }
 }
 $controller = new \App\cpanel\Controllers\User();
-$action = $_GET['action'] ?: 'Index';
+$action = $_GET['action'] ?: 'Login';
+include_once __DIR__ . '/../templates/index_top.php';
 if('Index' == $action) {
-    include_once __DIR__ . '/../templates/index_top.php';
+    try{
+        $controller->action($action);
+    } catch(\App\Exceptions\Core $e){
+        echo 'Возникло исключение ' . $e->getMessage();
+    } catch (\App\Exceptions\Db $e) {
+        echo 'Проблемы с базой данных: ' . $e->getMessage();
+    }
+}else{
+    include __DIR__ . '/templates/login.php';
 }
-try{
-    $controller->action($action);
-} catch(\App\Exceptions\Core $e){
-    echo 'Возникло исключение ' . $e->getMessage();
-} catch (\App\Exceptions\Db $e) {
-    echo 'Проблемы с базой данных: ' . $e->getMessage();
-}
+
 include  __DIR__ . '/templates/index_bottom.php';
+
 
 /*if (isset($_POST['submit'])) // ����������� ������� ������ "���������"
 {

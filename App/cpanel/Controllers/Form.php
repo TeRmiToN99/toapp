@@ -3,7 +3,7 @@
 namespace App\cpanel\Controllers;
 
 
-use App\cpanel\Models\News;
+use App\cpanel\Models\Article;
 use App\cpanel\Models\Product;
 use App\cpanel\View;
 use App\cpanel\Models\User;
@@ -47,11 +47,11 @@ class Form
         $this->view->display(__DIR__ . '/../templates/form_product.php');
     }
 
-    public function actionNews(){
+    public function actionArticle(){
         $this->view->blocktitle = 'Добавить новость';
         $this->view->users = User::findAll();
-        $this->view->allnews = News::findAll();
-        $this->view->display(__DIR__ . '/../templates/form_news.php');
+        $this->view->articles = Article::findAll();
+        $this->view->display(__DIR__ . '/../templates/form_article.php');
     }
 
     public function actionUpdateProduct(){
@@ -60,5 +60,10 @@ class Form
         $this->view->categories = \App\cpanel\Models\Category::findAll();
         $this->view->display(__DIR__ . '/../templates/form_product.php');
     }
-    
+
+    public function actionUpdateArticle(){
+        $this->view->blocktitle = 'Изменить новость';
+        $this->view->article = Article::findById($_GET['article_id']);
+        $this->view->display(__DIR__ . '/../templates/form_article.php');
+    }
 }

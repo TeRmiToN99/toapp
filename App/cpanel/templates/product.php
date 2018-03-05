@@ -4,12 +4,17 @@
             <div class="product_item">
                 <div class="header_block">
                     <h2><?= $product->title;?></h2>
-                    <a class="thumbnail" href="<?php echo $product->url_img; ?>" target="_blank"><img class="product_img" src="<?php echo $product->url_img; ?>"></a>
+                    <? if($product->url_img != ''):?>
+                        <a class="thumbnail" href="<?php echo $product->url_img; ?>" target="_blank"><img class="product_img" src="<?php echo $product->url_img; ?>"></a>
+                    <?else:?>
+                        <img src="<?=\App\Models\Product::NOIMG?>">
+                    <?endif;?>
                 </div>
                 <div class="link_block">
                     <!--<a class="btn btn-info" href="#">23см</a>
                     <a class="btn btn-info" href="#">33см</a>-->
                     <a class="btn btn-info" href="form.php?action=UpdateProduct&product_id=<?=$product->id;?>&category_id=<?=$product->category_id;?>"><i class="fa fa-pencil fa-fw"></i></a>
+                    <a class="btn btn-danger" onClick="return window.confirm('Вы подтверждаете удаление?');" href="products.php?action=DeleteProduct&product_id=<?=$product->id;?>" ><i class="fa fa-trash-o"></i></a>
                 </div>
                 <div>
                     <label><?= $product->category_title;?></label>

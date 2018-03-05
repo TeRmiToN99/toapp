@@ -14,14 +14,19 @@
         <?php endforeach;?>
     </div>
     <div>
-        <h3><?=$blocktitle; echo $vcat; echo(' (' . count($products) . ')');?></h3>
+        <h3><?=$blocktitle; echo(' (' . count($products) . ')');?></h3>
         <?php if (!empty($products)){foreach ($products as $product): ?>
-            <a href="../../products.php?action=FindById&product_id=<?echo $product->id?>"><div class="products_item">
                 <div>
-                    <img class="product_img hidden-xs hidden-sm" src="<?php echo $product->url_img; ?>">
+                    <a href="../../products.php?action=FindById&product_id=<?echo $product->id?>"><div class="products_item">
+                        <? if($product->url_img != ''):?>
+                             <img class="product_img hidden-xs hidden-sm" src="<?php echo $product->url_img; ?>">
+                        <?else:?>
+                            <img src="<?=\App\Models\Product::NOIMG?>">
+                        <?endif;?>
+                            <h3><?php echo $product->title;?></h3>
+                    </a>
                 </div>
-                    <h3><?php echo $product->title;?></h3></a>
-                <!--<div>
+        <!--<div>
                     <?//= $product->lead; ?>
                 </div>-->
             </div>

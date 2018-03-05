@@ -72,6 +72,7 @@ class Product
     return $res;
 }
 
+
 // deprecated!!!!!
     public function uploadTechCart(int $i){
         $file = $_FILES['tech_cart'.$i];

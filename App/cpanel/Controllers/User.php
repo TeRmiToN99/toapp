@@ -8,7 +8,7 @@ use App\cpanel\View;
 
 
 
-class User extends Model
+class User
 {
     protected $view;
 
@@ -32,8 +32,10 @@ class User extends Model
 
     public function actionIndex()
     {
-        $this->view->blocktitle = 'Авторизация.';
-        $this->view->display(__DIR__ . '/../templates/login.php');
+        $this->view->blocktitle = 'Все пользователи:';
+        $this->view->users = \App\cpanel\Models\User::findAll();
+        //$this->view->categories = Category::findAll();
+        $this->view->display(__DIR__ . '/../templates/a_users.php');
     }
 /*
     public function DataCompare($login, $password)

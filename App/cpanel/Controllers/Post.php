@@ -4,7 +4,7 @@ namespace App\cpanel\Controllers;
 
 
 use App\cpanel\Models\Category;
-use App\cpanel\Models\News;
+use App\cpanel\Models\Article;
 use App\cpanel\Models\Product;
 use App\cpanel\View;
 use App\cpanel\Models\User;
@@ -30,7 +30,7 @@ class Post
                 $methodName = 'update' . $post_type;
                 return $this->$methodName();
         }else{
-            echo 'неизвестный метод';
+            return 'неизвестный метод';
         }
     }
 
@@ -56,8 +56,8 @@ class Post
     public function actionNews(){
         $this->view->blocktitle = 'Добавить новость';
         $this->view->users = User::findAll();
-        $this->view->allnews = News::findAll();
-        $this->view->display(__DIR__ . '/../templates/form_news.php');
+        $this->view->allnews = Article::findAll();
+        $this->view->display(__DIR__ . '/../templates/form_article.php');
     }
 
 
@@ -74,41 +74,46 @@ class Post
         $this->view->display(__DIR__ . '/../templates/index_location.php');
     }
 
-    public function insertNews(){
-        try
-        {
-            $this->article = new News();
+    public function insertArticle(){
+        $page = 'article.php';
+        try{
+            $this->article = new Article();
             $this->article->preInsert($this->data);
             $this->article->insert();
             $this->view = new View();
+            $this->view->res = 'Успешно';
         } catch (Exception $e) {
             $this->view->errors = $e;
+            //$this->view->display(__DIR__ . '/../templates/errors.php');
         }
         $this->view->display(__DIR__ . '/../templates/index_location.php');
     }
     public function insertCategory(){
-        $this->category = new Category();
-        $this->category->preInsert($this->data);
-        $this->category->insert();
-        $this->view->res = 'Успешно';
-        $this->view = new View();
-        $this->view->categories = Category::findAll();
-        $this->view->page = 'index.php';
-        $this->view->display(__DIR__ . '/../templates/index_location.php');
-
+        $page = 'index.php';
+        try{
+            $this->category = new Category();
+            $this->category->preInsert($this->data);
+            $this->category->insert();
+            $this->view = new View();
+            $this->view->res = 'Успешно';
+            $this->view->categories = Category::findAll();
+            $this->view->display(__DIR__ . '/../index.php');
+        }catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
     }
 
     public function insertProduct(){
         try{
             $this->product = new Product();
             if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
-            //if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
-            //if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
             $this->product->preInsert($this->data);
             $this->product->insert();
             $this->view = new View();
-            $this->view->page = 'index.php';
-            $this->view->display(__DIR__ . '/../templates/index_location.php');
+            $this->view->res = 'Успешно';
+            $this->view->page = 'products.php';
+            $this->view->display(__DIR__ . '/../templates/products_location.php');
         } catch (Exception $e){
             $this->view->errors = $e;
             $this->view->display(__DIR__ . '/../templates/errors.php');
@@ -125,13 +130,41 @@ class Post
         $this->product->preInsert($this->data);
         $this->product->update();
         $this->view = new View();
-        $_GET['message'] = 'Добавление блюда произошло ';
+        $this->view->res = 'Добавление блюда произошло ';
         $this->view->page = 'form.php?action=Product';
-        $this->view->display(__DIR__ . '/../templates/index_location.php');
+        $this->view->display(__DIR__ . '/../templates/products_location.php');
         } catch (Exception $e){
             $this->view->errors = $e;
             $this->view->display(__DIR__ . '/../templates/errors.php');
         }
     }
 
+    public function updateCategory(){
+        try{
+            $this->category = new Category();
+            $this->category->preInsert($this->data);
+            $this->category->update();
+            $this->view = new View();
+            $this->view->res = 'Изменение категории произошло ';
+            $this->view->page = 'form.php?action=Category';
+            $this->view->display(__DIR__ . '/../templates/category_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
+    }
+    public function updateArticle(){
+        try{
+            $this->article = new Article();
+            $this->article->preInsert($this->data);
+            $this->article->update();
+            $this->view = new View();
+            $this->view->res = 'Изменение новости произошло ';
+            $this->view->page = 'form.php?action=Article';
+            $this->view->display(__DIR__ . '/../templates/article_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
+    }
 }

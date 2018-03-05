@@ -1,10 +1,10 @@
 <div class="col-sm-12 col-md-12 well" id="form_product">
     <h1><?=$blocktitle;?></h1>
-    <form action="/App/cpanel/post.php?action=<? echo(!empty($product->id) ? 'Update': 'Insert');?>&post_type=Product" method="post" enctype="multipart/form-data">
+    <form id="form_product" action="/App/cpanel/post.php?action=<? echo(!empty($product->id) ? 'Update': 'Insert');?>&post_type=Product" method="post" enctype="multipart/form-data">
         <div class="block_info col-sm-6 col-md-6">
             <div class="form-group">
                 <label for="title">Заголовок</label><br>
-                <input type="text" name="title" id="title" value="<?=$product->title; ?>">
+                <input type="text" name="title" id="title" value='<?=$product->title;?>'>
                 <input type="text" style="display: none" name="id" id="id" value="<?=$product->id?>">
             </div>
             <div class="form-group">
@@ -25,7 +25,8 @@
                 <label for="description">Технология:</label><br>
                 <textarea class="form-control" id="description" name="description"rows="5"><?=$product->description;?></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="submit" class="btn btn-primary" onclick="this.form.submit;"><i class="fa fa-floppy-o"></i></button>
+            <button type="submit" class="btn btn-primary" onclick="this.form.submit;">Сохранить и выйти&nbsp;<i class="fa fa-floppy-o"></i></button>
         </div>
         <!--<div class="block_img_links">
             <div class="form-group">
@@ -41,8 +42,13 @@
 
         </div>-->
         <div class="product_image_block col-sm-4 col-md-4">
-            <h4>Текущая основная фотография: <?=$product->url_img;?></h4>
-            <a class="thumbnail" href="<?=$product->url_img;?>" target="_blank"><img src="<?=$product->url_img;?>"></a>
+            <? if($product->url_img != ''):?>
+                <h4>Текущая основная фотография: <?=$product->url_img;?></h4>
+                <a class="thumbnail" href="<?=$product->url_img;?>" target="_blank"><img src="<?=$product->url_img;?>"></a>
+            <?else:?>
+                <img src="<?=\App\cpanel\Models\Product::NOIMG?>">
+            <?endif;?>
+
             <div class="form-group">
                 <label for="url_img">Основное фото</label>
                 <input type="file" class="form-control-file" name="url_img" id="url_img">

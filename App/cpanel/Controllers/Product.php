@@ -31,7 +31,7 @@ class Product
     public function actionIndex()
     {
         $this->view->blocktitle = 'Все блюда.';
-        $this->view->products = \App\cpanel\Models\Product::findAll();
+        $this->view->products = \App\cpanel\Models\Product::findPoducts();
         $this->view->categories = Category::findAll();
         $this->view->display(__DIR__ . '/../templates/a_products.php');
     }
@@ -46,5 +46,22 @@ class Product
         $category = Category::findById($this->view->product->category_id);
         $this->view->product->category_title = $category->title;
         $this->view->display(__DIR__ . '/../templates/product.php');
+    }
+
+    public function actionDeleteProduct(){
+        $product = \App\cpanel\Models\Product::findById($_GET['product_id']);
+        $this->view = new View();
+        if ($product != '' && isset($product)){
+            try{
+                 $product->delete();
+            }catch (\Exception $e){
+                $this->view->errors = $e;
+                $e->getMessage();
+                $this->view->display(__DIR__ . '/../templates/error.php');
+            }
+        }else{
+            echo 'Ошибка, удалять нечего';
+        }
+        $this->view->display(__DIR__ . '/../templates/products_location.php');
     }
 }

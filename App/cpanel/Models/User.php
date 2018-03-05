@@ -43,20 +43,6 @@ class User extends Model
         return [];
     }
 
-    public function findUser($login){
-        if ($login != ' ') {
-            $db = Db::instance();
-            return $db->query(
-                'SELECT * FROM ' . static::TABLE
-                . ' WHERE login = :login',
-                [':login' => $login],
-                static::class
-            );
-        } else {
-            return false;
-        }
-    }
-
     public function cryptPass($pass){
         return password_hash($pass, PASSWORD_DEFAULT);
     }

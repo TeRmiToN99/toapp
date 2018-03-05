@@ -13,6 +13,7 @@ abstract class Model
             'SELECT * FROM ' . static::TABLE,
             [], static::class
         );
+        //. 'DESC LIMIT :offset, :show_pages'
     }
     public static function findById(int $id)
     {
@@ -71,6 +72,20 @@ abstract class Model
         }
     }
 
+    public function findUser($login){
+        if ($login != ' ') {
+            $db = Db::instance();
+            return $db->query(
+                'SELECT * FROM ' . static::TABLE
+                . ' WHERE login = :login',
+                [':login' => $login],
+                static::class
+            );
+        } else {
+            return false;
+        }
+    }
+
     public function update(){
         $columns = [];
         $values = [];
@@ -89,5 +104,33 @@ abstract class Model
                 ' WHERE id = :id';
         $db = Db::instance();
         return $db->queryUpdate($sql, $values, static::class);
+    }
+
+    public function delete(){
+        $id = $this->id;
+        $sql = '';
+        if ($id != ' ') {
+            $sql = 'DELETE FROM ' . static::TABLE
+                . ' WHERE id = :id';
+            $db = Db::instance();
+            $db->query(
+                $sql,
+                [':id' => $id],
+                static::class
+            );
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static function findPoducts()
+    {
+        $db = Db::instance();
+        return $db->query(
+            'SELECT * FROM ' . static::TABLE . ' ORDER BY category_id ASC, title DESC',
+            [], static::class
+        );
+        //. 'DESC LIMIT :offset, :show_pages'
     }
 }

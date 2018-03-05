@@ -1,13 +1,11 @@
 <?php
-require_once __DIR__ . '/../../autoload.php';
-
+require_once __DIR__ . '/autoload.php';
 session_start();
 if ( isset ($_SESSION['logged_user']) ){
-    $title = 'ToApp | Все пользователи';
-    include __DIR__ . '/templates/index_top.php';
-    $controller = new \App\cpanel\Controllers\User();
+    $title = 'ToApp | Все новости';
+    include __DIR__ . '/App/templates/index_top.php';
+    $controller = new \App\Controllers\Article();
     $action = $_GET['action'] ?: 'Index';
-    $type = '';
     try {
         $controller->action($action);
     } catch (\App\Exceptions\Core $e) {
@@ -18,4 +16,4 @@ if ( isset ($_SESSION['logged_user']) ){
 }else {
     header("Location: login.php");
 }
-include __DIR__ . '/templates/index_bottom.php';
+include __DIR__ . '/App/templates/index_bottom.php';

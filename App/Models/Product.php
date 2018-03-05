@@ -9,6 +9,7 @@ class Product
     extends Model
 {
     const TABLE = 'products';
+    const NOIMG = '/App/images/no-img.png';
 
     public $title;
     public $lead;

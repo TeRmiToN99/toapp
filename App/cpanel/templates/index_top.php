@@ -76,6 +76,12 @@
                 </a>
             </div>
             <!-- Top Menu Items -->
+            <ul class="nav navbar-left top-nav">
+                <li><a href="/App/cpanel/form.php?action=Category"><i class="fa fa-plus-circle"></i> Категорию</a></li>
+                <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-plus-circle"></i> Блюдо</a></li>
+                <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-plus-circle"></i> Пользователя</a></li>
+                <li><a href="/App/cpanel/form.php?action=Article"><i class="fa fa-plus-circle"></i> Новость</a></li>
+            </ul>
             <ul class="nav navbar-right top-nav">
                 <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
                     </a>
@@ -105,14 +111,14 @@
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  НОВОСТИ <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                         <ul id="submenu-2" class="collapse">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> ВСЕ НОВОСТИ</a></li>
-                            <li><a href="/App/cpanel/form.php?action=News"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ НОВОСТЬ</a></li>
+                            <li><a href="/App/cpanel/article.php"><i class="fa fa-angle-double-right"></i> ВСЕ НОВОСТИ</a></li>
+                            <li><a href="/App/cpanel/form.php?action=Article"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ НОВОСТЬ</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-user-plus"></i>  ПОЛЬЗОВАТЕЛИ<i class="fa fa-fw fa-angle-down pull-right"></i></a>
                         <ul id="submenu-3" class="collapse">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> ВСЕ ПОЛЬЗОВАТЕЛИ</a></li>
+                            <li><a href="/App/cpanel/user.php"><i class="fa fa-angle-double-right"></i> ВСЕ ПОЛЬЗОВАТЕЛИ</a></li>
                             <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ</a></li>
                         </ul>
                     </li>

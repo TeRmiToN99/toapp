@@ -1,36 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?php echo $title; ?></title>
-
-    <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-<h1>Одна статья</h1>
-    <div class="panel panel-default">
-        <div class="panel-heading"><?php echo $article->title;?>
-            <p> <?php if (!empty($article->author)): ?>
-                    Автор: <?php echo $article->author->name; ?>
-                <?php endif; ?></p>
-        </div>
-        <div class="panel-body">
-            <?php echo $article->lead; ?></div>
+<div class="col-sm-12 col-md-12 well hidden-xs hidden-sm" id="content">
+        <h3><?=$blocktitle; echo '(' .count($articles) . ')' ;?></h3>
+    <div class="block-news">
+        <? if(count($articles) > 0 ):?>
+        <? $x=0; if(count($articles) > 3 ){$x=3;}else{$x=count($articles);} ?>
+            <div class="block_left">
+            <? for($i=0; $i<$x; $i++):?>
+                <div class="block_news_items">
+                    <div class=""><h4><?php echo $articles[$i]->title;?></h4>
+                    </div>
+                    <span>
+                        <?php echo $articles[$i]->lead;?>
+                    </span>
+                    <p><span class="media-heading"><?=$articles[$i]->publication; ?> <?php if (isset($articles[$i]->user_id)): ?>
+                            <?=$users[$articles[$i]->user_id-1]->login; ?></span></p>
+                    <?php else:?>
+                            Автор: Неизвестен. </span></p>
+                    <?endif; ?>
+                </div>
+            <?endfor;?>
+            </div>
+        <?endif;?>
+        <? if(count($articles) > 3 ):?>
+            <? $x=0; if(count($articles) > 6  ){$x=6;}else{$x=count($articles);} ?>
+            <div class="block_rigth">
+            <? for($i=3; $i<$x; $i++):?>
+                <div class="block_news_items ">
+                    <div class=""><h4><?php echo $articles[$i]->title;?></h4>
+                    </div>
+                    <span>
+                        <?php echo $articles[$i]->lead;?>
+                    </span>
+                    <p><span class="media-heading"><?=$articles[$i]->publication; ?> <?php if (isset($articles[$i]->user_id)): ?>
+                            <?=$users[$articles[$i]->user_id-1]->login; ?></span></p>
+                    <?php else:?>
+                        Автор: Неизвестен. </span></p>
+                    <?endif; ?>
+                </div>
+            <?endfor;?>
+            </div>
     </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <?endif;?>
+    <?if(count($articles) > 6):?>
+        <a href="/../article.php?action=Blog">Все новости.</a>
+    <?endif;?>
+</div>

@@ -7,16 +7,16 @@ use App\Model;
 use App\MultiException;
 
 /**
- * Class News
+ * Class Article
  * @package App\Models
  *
  * @property \App\Models\Author $author
  */
 
-class News
+class Article
     extends Model
 {
-    const TABLE = 'news';
+    const TABLE = 'articles';
 
     public $title;
     public $lead;

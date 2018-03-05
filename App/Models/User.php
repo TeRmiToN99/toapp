@@ -15,6 +15,7 @@ class User extends Model
     public $name;
     public $email;
     public $password;
+    public $login;
 
     /**
      * Метод, возвращающий адрес e-mail

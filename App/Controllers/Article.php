@@ -1,14 +1,14 @@
 <?php
 
-namespace App\cpanel\Controllers;
+namespace App\Controllers;
 
 
 use App\Exceptions\Core;
 use App\Exceptions\Db;
-use App\cpanel\MultiException;
-use App\cpanel\View;
+use App\MultiException;
+use App\View;
 
-class News
+class Article
 {
     protected $view;
 
@@ -32,22 +32,29 @@ class News
 
     public function actionIndex()
     {
-        $this->view->blocktitle = 'Новости.';
-        $this->view->allnews = \App\cpanel\Models\News::findAll();
-        $this->view->display(__DIR__ . '/../templates/news.php');
+        $this->view->blocktitle = 'Новости';
+        $this->view->articles = \App\Models\Article::findAll();
+        $this->view->users = \App\Models\User::findAll('id, login');
+        $this->view->display(__DIR__ . '/../templates/article.php');
+    }
+    public function actionBlog(){
+        $this->view->blocktitle = 'Все новости:';
+        $this->view->articles = \App\Models\Article::findAll();
+        $this->view->users = \App\Models\User::findAll('id, login');
+        $this->view->display(__DIR__ . '/../templates/article_blog.php');
     }
 
     protected function actionNew()
     {
         $id = (int)$_GET['id'];
-        $this->view->article= \App\cpanel\Models\News::findById($id);
+        $this->view->article= \App\Models\Article::findById($id);
         $this->view->display(__DIR__ . '/../templates/article.php');
     }
 
     protected function actionCreate(){
         try
         {
-            $article = new \App\cpanel\Models\News();
+            $article = new \App\Models\Article();
             $article->fill([]);
             $article->save();
         } catch (MultiException $e) {
