@@ -1,3 +1,4 @@
-<div class="col-sm-12 col-md-12 well" id="content">
-    <h2><?=$blocktitle ?: ''; ?></h2>
+<div class="search">
+    <input type="text" name="referal" placeholder="Поиск" value="" class="who"  autocomplete="off">
+    <ul class="search_result"></ul>
 </div>

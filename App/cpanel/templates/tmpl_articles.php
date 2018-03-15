@@ -6,7 +6,7 @@
                 <div class="block_news_item" ><h4><?php echo $article->title;?></h4>
                     <div class="link_block">
                         <a class="btn btn-info" href="form.php?action=UpdateArticle&article_id=<?=$article->article_id;?>"><i class="fa fa-pencil fa-fw"></i></a>
-                        <a class="btn btn-danger" onClick="return window.confirm('Вы подтверждаете удаление?');" href="article.php?action=DeleteArticle&article_id=<?=$article->id;?>" ><i class="fa fa-trash-o"></i></a>
+                        <a class="btn btn-danger" onClick="return window.confirm('Вы подтверждаете удаление?');" href="articles.php?action=DeleteArticle&article_id=<?=$article->id;?>" ><i class="fa fa-trash-o"></i></a>
                     </div>
                     <p> <?php if (!empty($article->user)): ?>
                     <span class="media-heading">автор: <?php echo $article->user->nikname; ?></span>

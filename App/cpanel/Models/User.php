@@ -24,6 +24,9 @@ class User extends Model
     public function getName(){
         return $this->name;
     }
+    public function getLogin(){
+        return $this->login;
+    }
     public function __get($k){
         switch ($k){
             case 'user':

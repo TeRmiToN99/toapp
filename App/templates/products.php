@@ -19,9 +19,9 @@
                 <div>
                     <a href="../../products.php?action=FindById&product_id=<?echo $product->id?>"><div class="products_item">
                         <? if($product->url_img != ''):?>
-                             <img class="product_img hidden-xs hidden-sm" src="<?php echo $product->url_img; ?>">
+                            <img class="product_img hidden-xs hidden-sm" src="<?php echo $product->url_img; ?>">
                         <?else:?>
-                            <img src="<?=\App\Models\Product::NOIMG?>">
+                            <img class="product_img hidden-xs hidden-sm" src="<?=\App\Models\Product::NOIMG?>">
                         <?endif;?>
                             <h3><?php echo $product->title;?></h3>
                     </a>

@@ -6,7 +6,8 @@
     <!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
 <footer>
-    <div class="container"></div>
+    <div class="container">
+    </div>
 </footer>
 <footer>
     <div class="container"></div>

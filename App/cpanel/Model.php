@@ -15,6 +15,8 @@ abstract class Model
         );
         //. 'DESC LIMIT :offset, :show_pages'
     }
+
+
     public static function findById(int $id)
     {
         if ($id != ' ') {
@@ -132,5 +134,21 @@ abstract class Model
             [], static::class
         );
         //. 'DESC LIMIT :offset, :show_pages'
+    }
+
+    public static function search(string $title)
+    {
+        if ($title != ' ') {
+            $title = '%' . $title . '%';
+            $db = Db::instance();
+            return $db->query(
+                'SELECT id, title FROM ' . static::TABLE
+                . ' WHERE title LIKE :title',
+                [':title' => $title],
+                static::class
+            );
+        } else {
+            return false;
+        }
     }
 }

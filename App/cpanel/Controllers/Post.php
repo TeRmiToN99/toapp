@@ -75,7 +75,7 @@ class Post
     }
 
     public function insertArticle(){
-        $page = 'article.php';
+        $page = 'articles.php';
         try{
             $this->article = new Article();
             $this->article->preInsert($this->data);

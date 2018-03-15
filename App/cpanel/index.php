@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/../../autoload.php';
 session_start();
-include_once __DIR__ . '/templates/index_top.php';
 if ( isset ($_SESSION['logged_user']) ){
+    include_once __DIR__ . '/templates/index_top.php';
+    include_once __DIR__ . '/templates/index_content.php';
     $controller = new \App\cpanel\Controllers\Article();
     $action = $_GET['action'] ?: 'Index';
     $type = '';

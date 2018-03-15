@@ -35,7 +35,7 @@ abstract class Model
     {
         $db = Db::instance();
         return $db->query(
-            'SELECT '. $params .' FROM ' . static::TABLE,
+            'SELECT ' . $params . ' FROM ' . static::TABLE,
             [], static::class
         );
     }
@@ -55,7 +55,8 @@ abstract class Model
         }
     }
 
-    public static function findByIdCategory(int $id){
+    public static function findByIdCategory(int $id)
+    {
         if ($id != ' ') {
             $db = Db::instance();
             return $db->query(
@@ -68,19 +69,35 @@ abstract class Model
             return false;
         }
     }
-/*
-    public static function prepireParams($params){
-        $str = '';
-        var_dump($params);
-        die;
-        if(isset($params)){
-            foreach ($params as $v){
-                $str.=$v . ', ';
+
+    /*
+        public static function prepireParams($params){
+            $str = '';
+            var_dump($params);
+            die;
+            if(isset($params)){
+                foreach ($params as $v){
+                    $str.=$v . ', ';
+                }
+                $str = substr($str,-2);
+                return $str;
             }
-            $str = substr($str,-2);
-            return $str;
+            return false;
         }
-        return false;
+    */
+    public static function search(string $title)
+    {
+        if ($title != ' ') {
+            $title = '%' . $title . '%';
+            $db = Db::instance();
+            return $db->query(
+                'SELECT id, title FROM ' . static::TABLE
+                . ' WHERE title LIKE :title',
+                [':title' => $title],
+                static::class
+            );
+        } else {
+            return false;
+        }
     }
-*/
 }

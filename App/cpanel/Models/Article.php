@@ -3,6 +3,7 @@
 namespace App\cpanel\Models;
 
 
+use App\cpanel\Db;
 use App\cpanel\Model;
 use App\MultiException;
 
@@ -64,7 +65,24 @@ class Article
         }
         throw $e;
     }
-    
+
+    public function sampleArticleUser(){
+        $db = Db::instance();
+        return $db->query(
+            'SELECT 
+                    articles.id,
+                    title,
+                    lead,
+                    publication,
+                    login
+            FROM articles 
+            LEFT JOIN users
+            ON users.id = user_id ORDER BY UNIX_TIMESTAMP(STR_TO_DATE(publication, \'%Y-%m-%d%H:%i:%S\')) DESC
+            ',
+            [], static::class
+        );
+    }
+
     public function preInsert($data){
         foreach ($data as $res => $val){
             $this->$res = $val;

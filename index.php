@@ -3,6 +3,7 @@ require_once __DIR__ . '/autoload.php';
 session_start();
 if ( isset ($_SESSION['logged_user']) ){
     include_once __DIR__ . '/App/templates/index_top.php';
+    include_once __DIR__ . '/App/templates/index_content.php';
     $controller = new \App\Controllers\Article();
     $action = $_GET['action'] ?: 'Index';
     $type = '';

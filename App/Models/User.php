@@ -42,8 +42,6 @@ class User extends Model
     }
 
     public function getHashPass(){
-
-        var_dump($this);
         return $this->this->password;
     }
 

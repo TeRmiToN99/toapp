@@ -33,15 +33,23 @@ class Article
     public function actionIndex()
     {
         $this->view->blocktitle = 'Новости.';
-        $this->view->articles = \App\cpanel\Models\Article::findAll();
-        $this->view->display(__DIR__ . '/../templates/tmpl_articles.php');
+        $this->view->articles = \App\cpanel\Models\Article::sampleArticleUser();
+        //$this->view->articles = \App\cpanel\Models\Article::findAll();
+        //$this->view->users = \App\cpanel\Models\User::findAll('id, login');
+        $this->view->display(__DIR__ . '/../templates/articles.php');
     }
 
+    public function actionBlog(){
+        $this->view->blocktitle = 'Все новости:';
+        $this->view->articles = \App\cpanel\Models\Article::findAll();
+        $this->view->users = \App\cpanel\Models\User::findAll('id, login');
+        $this->view->display(__DIR__ . '/../templates/articles_blog.php');
+    }
     protected function actionNew()
     {
         $id = (int)$_GET['id'];
         $this->view->article= \App\cpanel\Models\Article::findById($id);
-        $this->view->display(__DIR__ . '/../templates/article.php');
+        $this->view->display(__DIR__ . '/../templates/articles.php');
     }
 
     protected function actionCreate(){

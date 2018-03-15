@@ -49,8 +49,7 @@ class Form
 
     public function actionArticle(){
         $this->view->blocktitle = 'Добавить новость';
-        $this->view->users = User::findAll();
-        $this->view->articles = Article::findAll();
+        $this->view->articles = Article::sampleArticleUser();
         $this->view->display(__DIR__ . '/../templates/form_article.php');
     }
 

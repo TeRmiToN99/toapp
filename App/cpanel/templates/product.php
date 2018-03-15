@@ -17,6 +17,10 @@
                     <a class="btn btn-danger" onClick="return window.confirm('Вы подтверждаете удаление?');" href="products.php?action=DeleteProduct&product_id=<?=$product->id;?>" ><i class="fa fa-trash-o"></i></a>
                 </div>
                 <div>
+                    <fieldset>
+                        <legend>Подсказки</legend>
+                        <?= $product->tips; ?>
+                    </fieldset>
                     <label><?= $product->category_title;?></label>
                     <fieldset>
                         <legend>Краткое описание</legend>

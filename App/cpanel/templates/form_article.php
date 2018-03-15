@@ -9,9 +9,10 @@
             <label for="user">Автор:</label><br>
             <select class="form-control" id="user_id" name="user_id">
                 <?php foreach ($users as $user):?>
-                    <option value="<?=$user->id;?>"><?=$user->name?></option>
-                <?php endforeach;?>
+                    <option value="<?=$user->id;?>" <?if($user->id ===$_SESSION['logged_user'][0]->id){echo('selected');}else{echo('disabled');}?>><?=$user->name?></option>
+                <?php endforeach; ?>
             </select>
+            <!--<input id="<? //echo($_SESSION['logged_user'][0]->id);?>" value="<? //echo($_SESSION['logged_user'][0]->name);?>" readonly>-->
         </div>
         <div class="form-group">
             <label for="lead">Описание</label><br>

@@ -11,10 +11,10 @@
                     <span>
                         <?php echo $articles[$i]->lead;?>
                     </span>
-                    <p><span class="media-heading"><?=$articles[$i]->publication; ?> <?php if (isset($articles[$i]->user_id)): ?>
-                            <?=$users[$articles[$i]->user_id-1]->login; ?></span></p>
+                    <p><span class="media-heading"><?=$articles[$i]->publication; ?> <?php if (isset($articles[$i]->login)): ?>
+                            <?=$articles[$i]->login; ?></span></p>
                     <?php else:?>
-                            Автор: Неизвестен. </span></p>
+                        <p><span>Автор: Неизвестен. </span></p>
                     <?endif; ?>
                 </div>
             <?endfor;?>
@@ -30,10 +30,10 @@
                     <span>
                         <?php echo $articles[$i]->lead;?>
                     </span>
-                    <p><span class="media-heading"><?=$articles[$i]->publication; ?> <?php if (isset($articles[$i]->user_id)): ?>
-                            <?=$users[$articles[$i]->user_id-1]->login; ?></span></p>
+                    <p><span class="media-heading"><?=$articles[$i]->publication; ?> <?php if (isset($articles[$i]->login)): ?>
+                            <?=$articles[$i]->login; ?></span></p>
                     <?php else:?>
-                        Автор: Неизвестен. </span></p>
+                        <p><span>Автор: Неизвестен. </span></p>
                     <?endif; ?>
                 </div>
             <?endfor;?>

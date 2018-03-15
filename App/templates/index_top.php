@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?php if (!empty($title)){echo $title;} ?></title>
-
+    <!-- BEGIN JIVOSITE CODE {literal} -->
+    <script type='text/javascript'>
+        (function(){ var widget_id = '8n1XXyIBa5';var d=document;var w=window;function l(){
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+    <!-- {/literal} END JIVOSITE CODE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/App/cpanel/templates/js/search.js"></script>
     <!--AppStyle-->
     <link rel="stylesheet" href="/App/templates/style.css">
     <link rel="stylesheet" href="/App/templates/viewbox.css">
@@ -44,11 +50,10 @@
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
-            <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
-                </a>
-            </li>
             <li class="dropdown">
+               <li>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><? echo($login);?><b class="fa fa-angle-down"></b></a>
+            </li>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a></li>
                     <li><a href="#"><i class="fa fa-fw fa-cog"></i> Настройки</a></li>

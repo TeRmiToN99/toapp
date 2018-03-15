@@ -12,6 +12,10 @@
                 </div>
                     <?= $product->category_title;?></label>
                     <fieldset>
+                        <legend>Подсказки</legend>
+                        <?= $product->tips; ?>
+                    </fieldset>
+                    <fieldset>
                         <legend>Краткое описание</legend>
                         <?= $product->lead; ?>
                     </fieldset>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use App\Db;
 use App\Model;
 use App\MultiException;
 
@@ -48,7 +49,23 @@ class Article
                 return false;
         }
     }
-    
+
+    public function sampleArticleUser(){
+        $db = Db::instance();
+        return $db->query(
+            'SELECT 
+                    articles.id,
+                    title,
+                    lead,
+                    publication,
+                    login
+            FROM articles 
+            LEFT JOIN users
+            ON users.id = user_id ORDER BY UNIX_TIMESTAMP(STR_TO_DATE(publication, \'%Y-%m-%d%H:%i:%S\')) DESC
+            ',
+            [], static::class
+        );
+    }
     public function fill($data = []){
         $e = new MultiException();
         if (true){

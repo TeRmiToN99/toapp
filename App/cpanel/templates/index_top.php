@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="/App/cpanel/templates/viewbox.css">
 
     <script src="/App/Plugins/tinymce/tinymce.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/App/cpanel/templates/js/search.js"></script>
     <script>tinymce.init({
-            selector:'textarea#description',
+            selector:'textarea#description, textarea#tips',
             branding: false,
             resize: 'both',
-            height: 350,
+            height: 250,
             directionality : 'ru',
             skin: "charcoal",
             //theme: 'modern',
@@ -111,7 +112,7 @@
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  НОВОСТИ <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                         <ul id="submenu-2" class="collapse">
-                            <li><a href="/App/cpanel/article.php"><i class="fa fa-angle-double-right"></i> ВСЕ НОВОСТИ</a></li>
+                            <li><a href="/App/cpanel/articles.php"><i class="fa fa-angle-double-right"></i> ВСЕ НОВОСТИ</a></li>
                             <li><a href="/App/cpanel/form.php?action=Article"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ НОВОСТЬ</a></li>
                         </ul>
                     </li>

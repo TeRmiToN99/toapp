@@ -6,11 +6,11 @@ if ($_SESSION['login'] == '')
 {
     header("Location: /login.php");
 }else {
-    $userName = 'admin';
     $controller = new \App\Controllers\Product();
     $action = $_GET['action'] ?: 'Index';
     $title = 'ToApp | Блюда категории';
     include __DIR__ . '/App/templates/index_top.php';
+    include_once __DIR__ . '/App/templates/index_content.php';
     try {
         $controller->action($action);
     } catch (\App\Exceptions\Core $e) {

@@ -41,7 +41,6 @@ try {
 } catch (\App\Exceptions\Db $e) {
     echo 'Проблемы с базой данных: ' . $e->getMessage();
 }
-include  __DIR__ . '/App/templates/index_bottom.php';
 
 /*if (isset($_POST['submit'])) // ����������� ������� ������ "���������"
 {
