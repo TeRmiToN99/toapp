@@ -11,8 +11,6 @@ class Product
     const TABLE = 'products';
 
     public $title;
-    public $lead;
-    public $description;
     public $category_id;
 
     public function __get($k){
@@ -70,8 +68,34 @@ class Product
         }
     }
     return $res;
-}
+    }
 
+    public function withDrawIngredient(){
+        if($_POST['id'] != ''){
+            $product_id = $_POST['id'];
+            $ingarray = $_POST;
+            $ingedients[] = '';
+            $i = 0;
+            foreach ($ingarray as $v => $k){
+                if(strlen($v) > 4){
+                    if(strncasecmp($v, "weight", 5 ) == false){
+                        $s = (substr($v, 6, 5));
+                        $ingedients[$i]=[
+                            'product_id'=> $product_id,
+                            'ingredient_id' => $s,
+                            'weight' => $k
+                        ];
+                        $i++;
+                        unset($_POST[$v]);
+                    }else{
+                        continue;
+                    }
+                }
+            }
+        return $ingedients;
+    }
+
+}
 
 // deprecated!!!!!
     public function uploadTechCart(int $i){

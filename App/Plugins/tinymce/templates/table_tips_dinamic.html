@@ -1,0 +1,19 @@
+<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+<script type="text/javascript">
+
+    function addField () {
+        var telnum = parseInt($("#add_field_area").find("div.add:last").attr("id").slice(3)) 1;
+
+        $("div#add_field_area").append("<div id="add" telnum "" class="add"><label> Поле №" telnum "</label><input type="text" width="120" name="val[]" id="val"  value=""/></div>");
+    }
+
+</script>
+<div id="add_field_area">
+    <div id="add1" class="add">
+        <label> Поле №1</label>
+        <input type="text" width="120" name="val[]" id="val"  value="<?=$value?>"/>
+    </div>
+
+    <div onclick="addField();" class="addbutton">Добавить новое поле</div>
+
+</div>

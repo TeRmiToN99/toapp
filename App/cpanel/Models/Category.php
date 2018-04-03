@@ -54,4 +54,18 @@ class Category
         }
         return [];
     }
+    
+    public function uploadImage(){
+        $root = '/App/images/categories/';
+        if (isset($_FILES['url_img'])) {
+            if (0 == $_FILES['url_img']['error']){
+                $res = move_uploaded_file(
+                    $_FILES['url_img']['tmp_name'],
+                    $_SERVER['DOCUMENT_ROOT'] . $root . $_FILES['url_img']['name']
+                );
+                $this->url_img = $root . $_FILES['url_img']['name'];
+            }
+        }
+        return $res;
+    }
 }

@@ -24,6 +24,7 @@ class Db
         $res = $sth->execute();
         return $res;
     }
+
     public function query($sql, $params, $class){
         try
         {
@@ -38,6 +39,7 @@ class Db
         }
         return [];
     }
+
     public function queryUpdate($sql, $params, $class){
         $sth = $this->dbh->prepare($sql);
         $params['id'] = $_POST['id'];

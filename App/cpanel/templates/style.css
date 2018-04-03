@@ -102,6 +102,15 @@
         background-color: #1a242f !important;
     }
 }
+.category_image_block{
+    width: 450px;
+    height: 250px;
+}
+.category_image_block > img, .cat_img{
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+}
 
 .side-nav>li>ul {
     padding: 0;
@@ -186,7 +195,6 @@ select{
     height: 500px;
 }
 .header_block{
-    float: left;
     margin: 5px 15px 5px 5px;
 }
 .link_block{
@@ -386,4 +394,164 @@ p, span{
             padding: 15px;
         }
     }
+
+}
+/*Стили для добавления поля ингридиентов*/
+.ingredient_selected{
+    min-width: 300px;
+
+}
+.ingredient_selected, .ing_icon, .ingredient_select>select, .weight_input{
+    float: left;
+}
+
+.weight_input{
+    width: 100px;
+    display: inline;
+}
+
+.ing_row{
+    display: block;
+    height: 60px;
+    width: 600px;
+}
+
+/*Color picker ingredient*/
+.yui-picker-hue-thumb {
+    cursor: default;
+    width: 18px;
+    height: 18px;
+    top: -8px;
+    left: -2px;
+    z-index: 9;
+    position: absolute;
+}
+
+.yui-picker-hue-bg {
+    -moz-outline: none;
+    outline: 0 none;
+    position: absolute;
+    left: 375px;
+    height: 366px;
+    width: 28px;
+    background: url(/App/images/color_img/hue_bg.png) no-repeat;
+    top: 4px;
+}
+
+.yui-picker-bg {
+    -moz-outline: none;
+    outline: 0 none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 364px;
+    width: 364px;
+    background-color: #F00;
+    background-image: url(/App/images/color_img/picker_mask_001.png);
+}
+
+.yui-picker-thumb {
+    cursor: default;
+    width: 11px;
+    height: 11px;
+    z-index: 9;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+}
+
+.yui-picker-swatch {
+    position: absolute;
+    left: 415px;
+    top: 10px;
+    height: 155px;
+    width: 195px;
+    border: 2px solid #7c7c7c;
+}
+
+.yui-picker-controls {
+    position: absolute;
+    top: 180px;
+    left: 415px;
+    font: 20px monospace;
+}
+
+.yui-picker-controls .hd {
+    background: transparent;
+    border-width: 0 !important;
+}
+
+.yui-picker-controls .bd {
+    height: 100px;
+    border-width: 0 !important;
+}
+
+.yui-picker-controls ul {
+    float: left;
+    padding: 0 2px 0 0;
+    margin: 0;
+}
+
+.yui-picker-controls li {
+    padding: 2px;
+    list-style: none;
+    margin: 0;
+}
+
+.yui-picker-controls input {
+    font-size: 20px;
+    width: 2.4em;
+}
+
+.yui-picker-hex-controls {
+    clear: both;
+    padding: 20px 0 0 0;
+    font: 25px monospace;
+}
+
+.yui-picker-hex-controls input {
+    width: 120px;
+    font: 40px monospace bold;
+    margin-left: -10px;
+}
+
+.yui-picker-controls a {
+    font: 20px arial, helvetica, clean, sans-serif;
+    display: block;
+    *display: inline-block;
+    padding: 0;
+    color: #000;
+}
+
+#container {
+    background-color: #C2FFFF;
+    height: 380px;
+    width: 625px;
+    position: relative;
+    margin: 0px auto;
+}
+
+#insertcolor {
+    background-color: #C2FFFF;
+    width: 615px;
+    font-size: 20px;
+    position: relative;
+    text-align: right;
+    padding: 5px;
+    margin: 5px auto;
+}
+
+input#startcolor {
+    font-size: 16px;
+    width: 90px;
+}
+
+button#newcolor {
+    font-size: 16px;
+}
+
+#first {
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid black;
 }

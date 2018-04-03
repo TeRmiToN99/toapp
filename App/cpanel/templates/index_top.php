@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/App/cpanel/templates/js/search.js"></script>
     <script>tinymce.init({
-            selector:'textarea#description, textarea#tips',
+            selector:'textarea#description',
             branding: false,
             resize: 'both',
             height: 250,
@@ -36,6 +36,20 @@
                     title: 'Шаблон тех карты пицца',
                     description: 'Шаблон техкарты для пицца',
                     url:'/App/Plugins/tinymce/templates/techcart_pizza.html'
+                },
+                {
+                    title: 'Шаблон таблицы для подсказок пицца',
+                    description: 'Шаблон таблицы для подсказок для вставки в текст категории пицца',
+                    url:'/App/Plugins/tinymce/templates/table_tips_pizza.html'
+                },{
+                    title: 'Шаблон вставки корневого div',
+                    description: 'Шаблон вставки корневого div для дальнейшего заполнения',
+                    url:'/App/Plugins/tinymce/templates/div_tmp.html'
+                },
+                {
+                    title: 'Шаблон таблицы для подсказок блюда',
+                    description: 'Шаблон таблицы для подсказок для вставки в текст категории блюда',
+                    url:'/App/Plugins/tinymce/templates/table_tips_dish.html'
                 }
             ],
             content_css: [
@@ -43,7 +57,6 @@
                 '/App/cpanel/templates/style.css'
             ]
         });</script>
-
     <!-- Bootstrap-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -58,10 +71,9 @@
 <header>
     <div class="container"></div>
 </header>
-<main>
     <div id="throbber" style="display:none; min-height:120px;"></div>
     <div id="noty-holder"></div>
-    <div id="wrapper">
+    <main id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -77,26 +89,26 @@
                 </a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-left top-nav">
-                <li><a href="/App/cpanel/form.php?action=Category"><i class="fa fa-plus-circle"></i> Категорию</a></li>
-                <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-plus-circle"></i> Блюдо</a></li>
-                <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-plus-circle"></i> Пользователя</a></li>
-                <li><a href="/App/cpanel/form.php?action=Article"><i class="fa fa-plus-circle"></i> Новость</a></li>
-            </ul>
-            <ul class="nav navbar-right top-nav">
-                <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
-                    </a>
-                </li>
+            <div>
+                <ul class="nav navbar-left top-nav"">
+                    <li><a href="/App/cpanel/form.php?action=Category"><i class="fa fa-plus-circle"></i> Категорию</a></li>
+                    <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-plus-circle"></i> Блюдо</a></li>
+                    <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-plus-circle"></i> Пользователя</a></li>
+                    <li><a href="/App/cpanel/form.php?action=Article"><i class="fa fa-plus-circle"></i> Новость</a></li>
+                    <li><a href="/App/cpanel/form.php?action=Ingredient"><i class="fa fa-plus-circle"></i> Ингредиент</a></li>
+                </ul>
+            <ul class="nav navbar-right top-nav" >
+                <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=($_SESSION['login']);?><b class="fa fa-angle-down"></b></a>
                     <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=($_SESSION['login']);?><b class="fa fa-angle-down"></b></a></li>
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a></li>
                         <li><a href="#"><i class="fa fa-fw fa-cog"></i> Настройки</a></li>
-                        <li class="divider"></li>
                         <li><a href="<?='user.php?action=Logout'?>"><i class="fa fa-fw fa-power-off"></i> Выйти</a></li>
                     </ul>
                 </li>
             </ul>
+            </div>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -107,6 +119,8 @@
                             <li><a href="/App/cpanel/form.php?action=Category"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ КАТ.</a></li>
                             <li><a href="/App/cpanel/products.php"><i class="fa fa-angle-double-right"></i> БЛЮДА</a></li>
                             <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ БЛЮДО</a></li>
+                            <li><a href="/App/cpanel/ingredients.php"><i class="fa fa-angle-double-right"></i> ИНГРЕДИЕНТЫ</a></li>
+                            <li><a href="/App/cpanel/form.php?action=Ingredient"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ ИНГРЕДИЕНТ</a></li>
                         </ul>
                     </li>
                     <li>
@@ -134,8 +148,9 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
+            <!-- .navbar-collapse -->
         </nav>
+
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->

@@ -187,7 +187,6 @@ select{
     height: 768px;
 }
 .header_block{
-    float: left;
     margin: 5px 15px 5px 5px;
 }
 .link_block{
@@ -202,6 +201,9 @@ select{
 }
 .block_img_links{
     float: left;
+}
+.product_title{
+    margin-left: 50px;
 }
 
 a.btn-succes{
@@ -253,6 +255,15 @@ h3{
     text-align: center;
 }
 
+.category_image_block{
+    width: 450px;
+    height: 250px;
+}
+.category_image_block > img, .cat_img{
+    width: 50px;
+    position: absolute;
+    margin-right: 10px;
+}
 
 @media only screen and (max-device-width: 768px) {
     #navbar_menu {
@@ -284,6 +295,26 @@ h3{
     #throbber, #noty-holder, #content{
         display: none;
     }
+}
+
+/*Стили для добавления поля ингридиентов*/
+.ingredient_selected{
+    min-width: 300px;
+
+}
+.ingredient_selected, .ing_icon, .ingredient_select>select, .weight_input{
+    float: left;
+}
+
+.weight_input{
+    width: 100px;
+    display: inline;
+}
+
+.ing_row{
+    display: block;
+    height: 60px;
+    width: 600px;
 }
 
 @media (min-width: 268px )and (max-width: 991px) {
@@ -357,6 +388,7 @@ h3{
 .search_result li:hover{
     background: #F9FF00;
 }
+
 
 
 /*Tabs style*/

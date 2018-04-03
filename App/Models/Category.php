@@ -9,6 +9,7 @@ class Category
     extends Model
 {
     const TABLE = 'categories';
+    const NOIMG = '/App/images/no_cat_img.png';
     public $title;
     public $lead;
 

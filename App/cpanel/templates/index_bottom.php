@@ -1,10 +1,11 @@
+                    </div>
+                    <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /.container-fluid -->
         </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
+        <!-- /#page-wrapper -->
+    </main><!-- /#wrapper -->
+</main>
 <footer>
     <div class="container"></div>
 </footer>

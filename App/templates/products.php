@@ -11,13 +11,22 @@
         </form>-->
         <?php foreach ($categories as $category):?>
             <a class="btn btn-success" href="../../products.php?action=FindByIdCategory&category_id=<?=$category->id?>"><?=$category->title?></a>
+            <?php
+                $cat_array[$category->id]['url_img'] = $category->url_img;
+            ?>
         <?php endforeach;?>
     </div>
     <div>
         <h3><?=$blocktitle; echo(' (' . count($products) . ')');?></h3>
-        <?php if (!empty($products)){foreach ($products as $product): ?>
+        <?php
+        if (!empty($products)){foreach ($products as $product): ?>
                 <div>
                     <a href="../../products.php?action=FindById&product_id=<?echo $product->id?>"><div class="products_item">
+                            <?php if(isset($cat_array[$product->category_id]['url_img'])):?>
+                                <img class="cat_img" src="<?=$cat_array[$product->category_id]['url_img'];?>">
+                            <?php else: ?>
+                                <img class="cat_img" src="<?=\App\Models\Category::NOIMG?>">
+                            <?php endif; ?>
                         <? if($product->url_img != ''):?>
                             <img class="product_img hidden-xs hidden-sm" src="<?php echo $product->url_img; ?>">
                         <?else:?>

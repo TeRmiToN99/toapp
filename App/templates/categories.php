@@ -3,6 +3,11 @@
         <h3><?=$blocktitle?></h3>
     <?php foreach ($categories as $category): ?>
         <div class="panel-heading col-md-4">
+            <?php if(isset($category->url_img)):?>
+                <img class="cat_img" src="<?=$category->url_img;?>">
+            <?php else: ?>
+                <img class="cat_img" src="<?=\App\Models\Category::NOIMG?>">
+            <?php endif; ?>
             <div class="panel-title">
                 <?php echo $category->title;?>
             </div>

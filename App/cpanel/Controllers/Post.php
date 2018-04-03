@@ -5,6 +5,7 @@ namespace App\cpanel\Controllers;
 
 use App\cpanel\Models\Category;
 use App\cpanel\Models\Article;
+use App\cpanel\Models\Ingredient;
 use App\cpanel\Models\Product;
 use App\cpanel\View;
 use App\cpanel\Models\User;
@@ -92,6 +93,7 @@ class Post
         $page = 'index.php';
         try{
             $this->category = new Category();
+            if('' != $_FILES['url_img']){$this->category->uploadImage($_FILES['url_img']);}
             $this->category->preInsert($this->data);
             $this->category->insert();
             $this->view = new View();
@@ -121,18 +123,56 @@ class Post
 
     }
 
+    public function insertIngredient(){
+        try{
+            $this->ingredients = new Ingredient();
+            if('' != $_FILES['url_img']){$this->ingredients->uploadImage($_FILES['url_img']);}
+            $this->ingredients->preInsert($this->data);
+            $this->ingredients->insert();
+            $this->view = new View();
+            $this->view->res = 'Успешно';
+            $this->view->page = 'ingredients.php';
+            $this->view->display(__DIR__ . '/../templates/ingredient_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
+    }
+    public function updateIngredient(){
+        try{
+            $this->ingredient = new Ingredient();
+            if('' != $_FILES['url_img']){$this->ingredient->uploadImage($_FILES['url_img']);}
+            $this->ingredient->preInsert($this->data);
+            $this->ingredient->update();
+            $this->view = new View();
+            $this->view->res = 'Изменение прошло успешно';
+            $this->view->page = 'form.php?action=Ingredient';
+            $this->view->display(__DIR__ . '/../templates/ingredient_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
+    }
+
     public function updateProduct(){
         try{
-        $this->product = new Product();
-        if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
-        //if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
-        //if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}
-        $this->product->preInsert($this->data);
-        $this->product->update();
-        $this->view = new View();
-        $this->view->res = 'Добавление блюда произошло ';
-        $this->view->page = 'form.php?action=Product';
-        $this->view->display(__DIR__ . '/../templates/products_location.php');
+            $this->product = new Product();
+            if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
+            //if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
+            //if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}$this->product->preInsert($this->data);
+            $ingedients = $this->product->withDrawIngredient();
+            $this->product->preInsert($this->data);
+            $this->product->update();
+            $this->ingredient = new Ingredient();
+            $this->ingredient->deleteIngredientsToProduct($this->product->id);
+            foreach ($ingedients as $ingredient){
+                $this->ingredient->preInsert($ingredient);
+                $this->ingredient->insertLinkIngredients();
+            }
+            $this->view = new View();
+            $this->view->res = 'Обновление блюда произошло ';
+            $this->view->page = 'form.php?action=Product';
+            $this->view->display(__DIR__ . '/../templates/products_location.php');
         } catch (Exception $e){
             $this->view->errors = $e;
             $this->view->display(__DIR__ . '/../templates/errors.php');
@@ -142,6 +182,7 @@ class Post
     public function updateCategory(){
         try{
             $this->category = new Category();
+            if('' != $_FILES['url_img']){$this->category->uploadImage($_FILES['url_img']);}
             $this->category->preInsert($this->data);
             $this->category->update();
             $this->view = new View();

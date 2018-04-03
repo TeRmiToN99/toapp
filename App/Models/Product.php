@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use App\Db;
 use App\Model;
 
 class Product
@@ -46,4 +47,13 @@ class Product
         }
         throw $e;
     }
+
+    /*public function findAllwithCategory(){
+        $db = Db::instance();
+        return $db->query(
+            'SELECT products.*, categories.url_img FROM ' . static::TABLE . 'INNER JOIN categories ' .
+            'ON products.category_id = categories.id ',
+            [], static::class
+        );
+    }*/
 }

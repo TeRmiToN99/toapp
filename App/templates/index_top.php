@@ -12,7 +12,7 @@
             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
     <!-- {/literal} END JIVOSITE CODE -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/App/cpanel/templates/js/search.js"></script>
+    <script src="/App/templates/js/search.js"></script>
     <!--AppStyle-->
     <link rel="stylesheet" href="/App/templates/style.css">
     <link rel="stylesheet" href="/App/templates/viewbox.css">
