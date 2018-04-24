@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-md-12 well">
     <div>
         <?php if (!empty($product)){ ?>
-            <div class="product_item">
+            <fieldset class="product_item">
                 <div class="header_block">
                     <h2><?= $product->title;?></h2>
                     <div class="link_block">
@@ -16,30 +16,40 @@
                         <img src="<?=\App\Models\Product::NOIMG?>">
                     <?endif;?>
                 </div>
-                <div class="form-group">
+                <fieldset>
                     <label for="tips">Подсказки</label><br>
                     <div id="product_cart_table">
-                        <?php if(!empty($ingredient)):?>
-                            <? for($i=0; $i < count($ingredient); $i++): ?>
-                                <div id="ing_row<?=$i?>" class="ing_row">
+                        <div id="ing_row1" class="ing_row">
+                            <strong class="ingredient_selected">Наименовение</strong>
+                            <strong class="option">Модификатор</strong>
+                            <strong class="weight">Вес1</strong>
+                            <strong class="weight">Вес2</strong>
+                        </div>
+                        <?php if(!empty($ingredients)):?>
+                            <? for($i=0; $i < count($ingredients); $i++): ?>
+                                <div class="ing_row">
                                     <div class="ing_icon">
-                                        <img src="<?=$ingredient[$i]->url_img?>">
+                                        <img src="<?=$ingredients[$i]->url_img?>">
                                     </div>
-                                    <div class="ingredient_selected"><?=$ingredient[$i]->title?></div>
-                                    <div class="weight_input"><?=$ingredient[$i]->weight?></div>
+                                    <div class="ingredient_selected"><?=$ingredients[$i]->title?></div>
+                                    <div class="opt_icon">
+                                    <? if($ingredients[$i]->option_img != null):?>
+                                        <img src="<?php echo $ingredients[$i]->option_img; ?>">
+                                    <?else:?>
+                                        <p>__</p>
+                                    <?endif;?>
+                                    </div>
+                                    <div class="input_weight"><?=$ingredients[$i]->weight1?></div>
+                                    <div class="input_weight"><?=$ingredients[$i]->weight2?></div>
                                 </div>
                             <?endfor; ?>
                         <?else:?>
-                            <div id="ing_row1" style="display: none" class="ing_row"></div>
+                            <div style="display: none" class="ing_row">В данном товаре нет ингредиентов.</div>
                         <?endif;?>
                     </div>
-                </div>
+                </fieldset>
 
                 <div>
-                    <fieldset>
-                        <legend>Подсказки</legend>
-                        <?= $product->tips; ?>
-                    </fieldset>
                     <label><?= $product->category_title;?></label>
                     <fieldset>
                         <legend>Краткое описание</legend>

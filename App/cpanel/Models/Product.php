@@ -4,6 +4,7 @@ namespace App\cpanel\Models;
 
 
 use App\cpanel\Model;
+use Couchbase\Exception;
 
 class Product
     extends Model
@@ -70,32 +71,110 @@ class Product
     return $res;
     }
 
-    public function withDrawIngredient(){
-        if($_POST['id'] != ''){
-            $product_id = $_POST['id'];
-            $ingarray = $_POST;
-            $ingedients[] = '';
+    public function withDrawIngredientAndOption(){
+        if($this->id != '') {
+            $product_id = $this->id;
+            $ingarray = $this;
+            $ingredient[] = '';
+            $ingredients[] = '';
+            $x = 0;
             $i = 0;
-            foreach ($ingarray as $v => $k){
-                if(strlen($v) > 4){
-                    if(strncasecmp($v, "weight", 5 ) == false){
-                        $s = (substr($v, 6, 5));
-                        $ingedients[$i]=[
-                            'product_id'=> $product_id,
-                            'ingredient_id' => $s,
-                            'weight' => $k
-                        ];
+            unset($ingredient);
+            try{
+                foreach ($ingarray as $v => $k){
+                    if (strrpos($v, "weight") !== false) {
+                        if (strrpos($v, "weight1") !== false) {
+                            $s = (substr($v, 8, 10));
+                            $ingredient['product_id'] = $product_id;
+                                 $ingredient['ingredient_id'] = $s;
+                                 $ingredient['weight1'] = $k;
+                            $i++;
+                            unset($this->$v);
+                        }elseif(strrpos($v, "weight2") !== false) {
+                            $ingredient['weight2'] = $k;
+                            $i++;
+                            unset($this->$v);
+                        }
+                    }
+                    if (strrpos($v, "option") !== false) {
+                        $k = (substr($v, 6, 10));
+                        if ($k != '') {
+                            if ($k == 'undefined') {
+                                $k = null;
+                            }
+                            $ingredient['option_id'] = $k;
+                        }
                         $i++;
-                        unset($_POST[$v]);
-                    }else{
-                        continue;
+                        unset($this->$v);
+                    }
+                    if($i == 3){
+                        $i = 0;
+                        $ingredients[$x] = $ingredient;
+                        $x++;
+                        unset($ingredient);
                     }
                 }
+                return $ingredients;
+            }catch (Exception $e){
+                echo $e->getMessage();
             }
-        return $ingedients;
-    }
+            /*
+             * $product_id = $this->id;
+            $ingarray = $this;
+            $ingredients[] = '';
+            $array[] = '';
+            $i=0;
+            $x=0;
+            try {
+                foreach ($ingarray as $v => $k) {
+                    if (strlen($v) > 0) {
+                        if (strrpos($v, "weight") !== false) {
+                            if (strrpos($v, "weight1") !== false) {
+                                $s = (substr($v, 8, 10));
+                                $array[$i]= [
+                                    'product_id' => $product_id,
+                                    'ingredient_id' => $s,
+                                    'weight1' => $k
+                                ];
+                            }
+                            if (strrpos($v, "weight2") !== false) {
+                                $array[$i] = [
+                                    'weight2' => $k
+                                ];
+                            }
+                            unset($this->$v);
+                        }
+                        if (strrpos($v, "option") !== false) {
+                            $k = (substr($v, 6, 10));
+                            if ($k != '') {
+                                if ($k == 'undefined') {
+                                    $k = null;
+                                }
+                                $array[$i]= [
+                                    'option' => $k
+                                ];
+                            }
+                            unset($this->$v);
+                        }
+                        if ((array_key_exists('weight1', $array) == true) &&
+                            (array_key_exists('weight2', $array) == true) &&
+                            (array_key_exists('option', $array) == true)){
+                            $ingredients[$i]=$array;
+                            $i++;
+                            unset($array);
+                        }
 
-}
+                    }
+                }
+                var_dump($array);
+                var_dump($ingredients);
+                die();
+                return $ingredients;
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }*/
+        }
+    }
 
 // deprecated!!!!!
     public function uploadTechCart(int $i){

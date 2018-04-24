@@ -398,22 +398,41 @@ p, span{
 }
 /*Стили для добавления поля ингридиентов*/
 .ingredient_selected{
-    min-width: 300px;
-
+    width: 300px;
 }
-.ingredient_selected, .ing_icon, .ingredient_select>select, .weight_input{
+strong.ingredient_selected{
+    width: 365px;
+}
+#ingredient_select{
+    width: 400px;
+}
+strong.weight{
+    margin: 0 60px 0 30px;
+}
+.ingredient_selected, .ing_icon, .ingredient_select>select, .weight_input, .option_select, .opt_icon{
     float: left;
 }
 
-.weight_input{
-    width: 100px;
-    display: inline;
+#weight_input1, #weight_input2{
+    width: 120px;
+}
+.input_weight{
+    float: left;
+    width: 120px!important;
+}
+.ing_row{
+    height: 60px;
+    width: 1000px;
 }
 
-.ing_row{
-    display: block;
-    height: 60px;
-    width: 600px;
+.option{
+    width: 120px !important;
+    float: left;
+}
+.opt_icon > img, .opt_icon > p{
+    width: 20px;
+    height: 20px;
+    margin: 0 120px 0 10px !important;
 }
 
 /*Color picker ingredient*/

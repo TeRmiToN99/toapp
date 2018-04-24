@@ -3,6 +3,7 @@
 namespace App\cpanel\Controllers;
 
 use App\cpanel\Models\Category;
+use App\cpanel\Models\Option;
 use App\cpanel\Models\Ingredient;
 use App\Exceptions\Core;
 use App\Exceptions\Db;
@@ -45,7 +46,8 @@ class Product
     public function actionFindById(){
         $this->view->product = \App\cpanel\Models\Product::findById($_GET['product_id']);
         $category = Category::findById($this->view->product->category_id);
-        $this->view->ingredient = \App\cpanel\Models\Ingredient::findIngredientsById($_GET['product_id']);
+        //$this->view->options = Option::findAll();
+        $this->view->ingredients = Ingredient::findIngredientsById($_GET['product_id']);
         $this->view->product->category_title = $category->title;
         $this->view->display(__DIR__ . '/../templates/product.php');
     }

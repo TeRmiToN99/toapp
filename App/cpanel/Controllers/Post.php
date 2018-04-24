@@ -6,6 +6,7 @@ namespace App\cpanel\Controllers;
 use App\cpanel\Models\Category;
 use App\cpanel\Models\Article;
 use App\cpanel\Models\Ingredient;
+use App\cpanel\Models\Option;
 use App\cpanel\Models\Product;
 use App\cpanel\View;
 use App\cpanel\Models\User;
@@ -89,6 +90,7 @@ class Post
         }
         $this->view->display(__DIR__ . '/../templates/index_location.php');
     }
+
     public function insertCategory(){
         $page = 'index.php';
         try{
@@ -138,6 +140,37 @@ class Post
             $this->view->display(__DIR__ . '/../templates/errors.php');
         }
     }
+
+    public function insertOption(){
+        try{
+            $this->option = new Option();
+            if('' != $_FILES['url_img']){$this->option->uploadImage($_FILES['url_img']);}
+            $this->option->preInsert($this->data);
+            $this->option->insert();
+            $this->view = new View();
+            $this->view->res = 'Успешно';
+            $this->view->page = 'options.php';
+            $this->view->display(__DIR__ . '/../templates/option_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
+    }
+    public function updateOption(){
+        try{
+            $this->option = new Option();
+            if('' != $_FILES['url_img']){$this->option->uploadImage($_FILES['url_img']);}
+            $this->option->preInsert($this->data);
+            $this->option->update();
+            $this->view = new View();
+            $this->view->res = 'Успешно';
+            $this->view->page = 'form.php?action=Option';
+            $this->view->display(__DIR__ . '/../templates/option_location.php');
+        } catch (Exception $e){
+            $this->view->errors = $e;
+            $this->view->display(__DIR__ . '/../templates/errors.php');
+        }
+    }
     public function updateIngredient(){
         try{
             $this->ingredient = new Ingredient();
@@ -157,17 +190,21 @@ class Post
     public function updateProduct(){
         try{
             $this->product = new Product();
-            if('' != $_FILES['url_img']){$this->product->uploadImage($_FILES['url_img']);}
+            if(' ' != $_FILES['url_img']){
+                $this->product->uploadImage($_FILES['url_img']);
+            }
             //if('' != $_FILES['tech_cart23']){$this->product->uploadTechCart('23');}
             //if('' != $_FILES['tech_cart33']){$this->product->uploadTechCart('33');}$this->product->preInsert($this->data);
-            $ingedients = $this->product->withDrawIngredient();
             $this->product->preInsert($this->data);
+            $ingredients = $this->product->withDrawIngredientAndOption();
             $this->product->update();
-            $this->ingredient = new Ingredient();
-            $this->ingredient->deleteIngredientsToProduct($this->product->id);
-            foreach ($ingedients as $ingredient){
-                $this->ingredient->preInsert($ingredient);
-                $this->ingredient->insertLinkIngredients();
+            if(0 != count($ingredients)){
+                $this->ingredient = new Ingredient();
+                $this->ingredient->deleteIngredientsToProduct($this->product->id);
+                foreach ($ingredients as $ingredient){
+                    $this->ingredient->preInsert($ingredient);
+                    $this->ingredient->insertLinkIngredients();
+                }
             }
             $this->view = new View();
             $this->view->res = 'Обновление блюда произошло ';

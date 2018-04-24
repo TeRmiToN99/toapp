@@ -47,7 +47,7 @@ class User extends Model
     }
 
     public function cryptPass($pass){
-        return password_hash($pass, PASSWORD_DEFAULT);
+        return password_hash($pass, PASSWORD_ARGON2I);
     }
 
     public function passVerify(string $password , string $hash){

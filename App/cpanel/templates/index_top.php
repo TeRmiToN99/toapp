@@ -96,12 +96,11 @@
                     <li><a href="/App/cpanel/form.php?action=User"><i class="fa fa-plus-circle"></i> Пользователя</a></li>
                     <li><a href="/App/cpanel/form.php?action=Article"><i class="fa fa-plus-circle"></i> Новость</a></li>
                     <li><a href="/App/cpanel/form.php?action=Ingredient"><i class="fa fa-plus-circle"></i> Ингредиент</a></li>
+                    <li><a href="/App/cpanel/form.php?action=Option"><i class="fa fa-plus-circle"></i> Модификатор</a></li>
                 </ul>
-            <ul class="nav navbar-right top-nav" >
-                <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i></a></li>
-                <li class="dropdown">
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=($_SESSION['login']);?>&nbsp;<b class="fa fa-angle-down"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?=($_SESSION['login']);?><b class="fa fa-angle-down"></b></a></li>
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a></li>
                         <li><a href="#"><i class="fa fa-fw fa-cog"></i> Настройки</a></li>
                         <li><a href="<?='user.php?action=Logout'?>"><i class="fa fa-fw fa-power-off"></i> Выйти</a></li>
@@ -121,6 +120,8 @@
                             <li><a href="/App/cpanel/form.php?action=Product"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ БЛЮДО</a></li>
                             <li><a href="/App/cpanel/ingredients.php"><i class="fa fa-angle-double-right"></i> ИНГРЕДИЕНТЫ</a></li>
                             <li><a href="/App/cpanel/form.php?action=Ingredient"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ ИНГРЕДИЕНТ</a></li>
+                            <li><a href="/App/cpanel/options.php"><i class="fa fa-angle-double-right"></i> МОДИФИКАТОРЫ</a></li>
+                            <li><a href="/App/cpanel/form.php?action=Option"><i class="fa fa-angle-double-right"></i> ДОБАВИТЬ МОДИФИКАТОР</a></li>
                         </ul>
                     </li>
                     <li>

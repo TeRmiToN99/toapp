@@ -45,7 +45,7 @@ class Product
     public function actionFindById(){
         $this->view->product = \App\Models\Product::findById($_GET['product_id']);
         $category = Category::findById($this->view->product->category_id);
-        $this->view->ingredient = Ingredient::findIngredientsById($_GET['product_id']);
+        $this->view->ingredients = Ingredient::findIngredientsById($_GET['product_id']);
         $this->view->product->category_url_img = $category->url_img;
         $this->view->display(__DIR__ . '/../templates/product.php');
     }

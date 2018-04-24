@@ -5,7 +5,7 @@ $(function(){
         if(this.value.length >= 2){
             $.ajax({
                 type: 'post',
-                url: "/search.php", //Путь к обработчику
+                url: "/App/cpanel/search.php", //Путь к обработчику
                 data: {'referal':this.value},
                 response: 'text',
                 success: function(data){

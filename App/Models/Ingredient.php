@@ -30,9 +30,14 @@ class Ingredient
             $db = Db::instance();
             return $db->query(
                 'SELECT 
-                ingredients.*, ingredienttoproduct.weight
+                ingredients.*, ingredienttoproduct.weight1, ingredienttoproduct.weight2, 
+                ingredienttoproduct.option_id, 
+                options.url_img AS option_img, 
+                options.title AS option_title
                 FROM ingredients INNER JOIN ingredienttoproduct 
                 ON ingredienttoproduct.ingredient_id = ingredients.id 
+                LEFT JOIN options
+                ON ingredienttoproduct.option_id = options.id
                 WHERE ingredienttoproduct.product_id = :product_id
                 ',
                 [':product_id' => $product_id],
