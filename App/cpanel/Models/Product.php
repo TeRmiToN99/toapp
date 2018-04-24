@@ -97,7 +97,7 @@ class Product
                         }
                     }
                     if (strrpos($v, "option") !== false) {
-                        $k = (substr($v, 6, 10));
+                        $k = (substr($v, 9, 10));
                         if ($k != '') {
                             if ($k == 'undefined') {
                                 $k = null;

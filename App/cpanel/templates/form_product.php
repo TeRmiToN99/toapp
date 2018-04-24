@@ -13,7 +13,7 @@
             "<div id=\"ing_row"+telnum+"\" class=\"ing_row\">" +
             "<div class=\"ing_icon\"><img src=\""+urlval+"\"></div>" +
             "<div class=\"ingredient_selected\">"+selectedval+"</div>" +
-            "<div class=\"option_selected\">" + "<input type=\"text\" class=\"option form-control\" class=\"form-control\" id=\"option"+optid+"\" name=\"option"+optid+"\" value=\""+selectedopn+"\">" +"</div>" +
+            "<div class=\"option_selected\">" + "<input type=\"text\" class=\"option form-control\" class=\"form-control\" id=\"option"+(telnum+10)+"_"+optid+"\" name=\"option"+(telnum+10)+"_"+optid+"\" value=\""+selectedopn+"\">" +"</div>" +
             "<div class=\"weight_input\">" +
             "<input type=\"text\" width=\"120px\" class=\"form-control input_weight\" id=\"weight1_"+ingid+"\" name=\"weight1_"+ingid+"\" value=\""+weightval1+"\">" +
             "<input type=\"text\" width=\"120px\" class=\"form-control input_weight\" id=\"weight2_"+ingid+"\" name=\"weight2_"+ingid+"\" value=\""+weightval2+"\">" +
@@ -57,7 +57,7 @@
                     <div id="ing_row0" class="ing_row"><strong class="ingredient_selected">Наименовение</strong><strong class="option">Модификатор</strong><strong class="weight">Вес1</strong><strong class="weight">Вес2</strong></div>
                     <?php if(!empty($ingredient)):?>
                         <? for($i=0; $i < count($ingredient); $i++): ?>
-                            <div id="ing_row<?=$ingredient[$i]->id?>" class="ing_row">
+                            <div id="ing_row<?=$i+1?>" class="ing_row">
                                 <div class="ing_icon">
                                     <img src="<?=$ingredient[$i]->url_img?>">
                                 </div>
@@ -70,16 +70,16 @@
                                             <?else:?>
                                                 <p>__</p>
                                             <?php endif; ?>
-                                            <input type="text" style="display: none" name="option<?=$ingredient[$i]->option_id?>" id="option<?=$ingredient[$i]->option_id?>" value="<?=$ingredient[$i]->option_title?>">
+                                            <input type="text" style="display: none" name="option<?=($i+10)?>_<?=$ingredient[$i]->option_id?>" id="option<?=($i+10)?>_<?=$ingredient[$i]->option_id?>" value="<?=$ingredient[$i]->option_title?>">
                                         <?else:?>
-                                            <input type="text" style="display: none" name="optionundefined" id="optionundefined" value="">
+                                            <input type="text" style="display: none" name="option<?=($i+10)?>_undefined" id="option<?=($i+10)?>_undefined" value="">
                                             <p>__</p>
                                         <?endif;?>
                                     </div>
                                 </div>
                                 <div class="weight_input"><input id="weight1_<?=$ingredient[$i]->id?>" name="weight1_<?=$ingredient[$i]->id?>"class="form-control" type="text" value="<?=$ingredient[$i]->weight1?>"></div>
                                 <div class="weight_input"><input id="weight2_<?=$ingredient[$i]->id?>" name="weight2_<?=$ingredient[$i]->id?>"class="form-control" type="text" value="<?=$ingredient[$i]->weight2?>"></div>
-                                <div class="deletebutton" onclick="deleteRow(<?=$ingredient[$i]->id?>)"><a class="btn btn-danger"><i class="fa fa-trash-o"></i></a></div>
+                                <div class="deletebutton" onclick="deleteRow(<?=$i+1?>)"><a class="btn btn-danger"><i class="fa fa-trash-o"></i></a></div>
                             </div>
                         <?endfor; ?>
                     <?endif;?>
