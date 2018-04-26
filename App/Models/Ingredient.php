@@ -39,6 +39,7 @@ class Ingredient
                 LEFT JOIN options
                 ON ingredienttoproduct.option_id = options.id
                 WHERE ingredienttoproduct.product_id = :product_id
+                ORDER BY id ASC
                 ',
                 [':product_id' => $product_id],
                 static::class

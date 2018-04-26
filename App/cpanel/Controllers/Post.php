@@ -200,10 +200,21 @@ class Post
             $this->product->update();
             if(0 != count($ingredients)){
                 $this->ingredient = new Ingredient();
-                $this->ingredient->deleteIngredientsToProduct($this->product->id);
+                //$this->ingredient->deleteIngredientsToProduct($this->product->id);
                 foreach ($ingredients as $ingredient){
+                    (array)$val = $this->ingredient->findByIdIngredientAndProduct((int)$ingredient['ingredient_id'], (int)$ingredient['product_id']);
                     $this->ingredient->preInsert($ingredient);
-                    $this->ingredient->insertLinkIngredients();
+                    if($val == false){
+                        echo('Вставка <br>');
+                        $this->ingredient->insertLinkIngredients();
+                    }elseif($val != false || $val != ''){
+                        echo('Обновление <br>');
+                        $this->ingredient->updateLinkIngredients();
+                    }else{
+                        echo 'Произошло прерывание процесса сохрание данных в БД по неизвестной ошибке.';
+                        var_dump($val);
+                        die();
+                    }
                 }
             }
             $this->view = new View();

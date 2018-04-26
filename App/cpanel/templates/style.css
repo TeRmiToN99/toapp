@@ -395,45 +395,60 @@ p, span{
         }
     }
 }
+
 /*Стили для добавления поля ингридиентов*/
 .ingredient_selected{
     width: 300px;
 }
 strong.ingredient_selected{
-    width: 365px;
+    width: 385px;
 }
 #ingredient_select{
     width: 400px;
 }
 strong.weight{
-    margin: 0 60px 0 30px;
+    margin: 0 0 0 20px;
 }
 .ingredient_selected, .ing_icon, .ingredient_select>select, .weight_input, .option_select, .opt_icon{
     float: left;
 }
 
 #weight_input1, #weight_input2{
-    width: 120px;
+    width: 60px;
 }
 .input_weight{
     float: left;
-    width: 120px!important;
+    width: 60px!important;
 }
 .ing_row{
     height: 60px;
     width: 1000px;
 }
+.ing_row > strong{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #333;
+}
+
+.ing_row > div{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    line-height: 50px;
+    color: #333;
+    margin: 0 0 0 10px;
+}
 
 .option{
-    width: 120px !important;
+    width: 60px !important;
     float: left;
+    margin: 0 10px 0 0;
 }
 .opt_icon > img, .opt_icon > p{
     width: 20px;
     height: 20px;
-    margin: 0 120px 0 10px !important;
+    margin: 0 60px 0 10px !important;
 }
-
 /*Color picker ingredient*/
 .yui-picker-hue-thumb {
     cursor: default;

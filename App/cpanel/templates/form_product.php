@@ -54,7 +54,7 @@
             <div class="form-group">
                 <label for="tips">Подсказки</label><br>
                 <div id="product_cart_table">
-                    <div id="ing_row0" class="ing_row"><strong class="ingredient_selected">Наименовение</strong><strong class="option">Модификатор</strong><strong class="weight">Вес1</strong><strong class="weight">Вес2</strong></div>
+                    <div id="ing_row0" class="ing_row"><strong class="ingredient_selected">Наименовение</strong><strong class="option">Мод.</strong><strong class="weight">Вес1</strong><strong class="weight">Вес2</strong></div>
                     <?php if(!empty($ingredient)):?>
                         <? for($i=0; $i < count($ingredient); $i++): ?>
                             <div id="ing_row<?=$i+1?>" class="ing_row">

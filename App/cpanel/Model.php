@@ -88,6 +88,25 @@ abstract class Model
         }
     }
 
+    public function findByIdIngredientAndProduct(int $ingredient_id, int $product_id){
+        if ($ingredient_id != ' ' && $product_id != ' ') {
+            $db = Db::instance();
+            return $db->query(
+                'SELECT * FROM ingredienttoproduct '
+                . ' WHERE ingredient_id = :ingredient_id
+                    AND product_id = :product_id
+                ',
+                [
+                    ':ingredient_id' => $ingredient_id,
+                    ':product_id' => $product_id
+                    ],
+                static::class
+            );
+        } else {
+            return false;
+        }
+    }
+
     public function update(){
         $columns = [];
         $values = [];

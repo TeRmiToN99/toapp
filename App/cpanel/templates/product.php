@@ -21,7 +21,7 @@
                     <div id="product_cart_table">
                         <div id="ing_row1" class="ing_row">
                             <strong class="ingredient_selected">Наименовение</strong>
-                            <strong class="option">Модификатор</strong>
+                            <strong class="option">Мод.</strong>
                             <strong class="weight">Вес1</strong>
                             <strong class="weight">Вес2</strong>
                         </div>

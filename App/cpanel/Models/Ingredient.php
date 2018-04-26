@@ -94,6 +94,7 @@ class Ingredient
                 LEFT JOIN options
                 ON ingredienttoproduct.option_id = options.id
                 WHERE ingredienttoproduct.product_id = :product_id
+                ORDER BY id ASC
                 ',
                 [':product_id' => $product_id],
                 static::class
@@ -122,4 +123,23 @@ class Ingredient
         return $db->query($sql, $values, static::class);
     }
 
+    public function updateLinkIngredients(){
+        $columns = [];
+        $values = [];
+        $str = '';
+        foreach ($this as $k => $v) {
+            if ('id' == $k) {
+                continue;
+            }
+            $columns[] = $k;
+            $values[':' . $k] = $v;
+            $str =  $str . $k . ' = :' . $k . ', ';
+        }
+        $str = substr($str,0,-2);
+        $sql = 'UPDATE ingredienttoproduct SET 
+                '. $str .
+            ' WHERE id = :id';
+        $db = Db::instance();
+        return $db->queryUpdate($sql, $values, static::class);
+    }
 }
